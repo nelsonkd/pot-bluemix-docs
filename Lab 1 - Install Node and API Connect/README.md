@@ -32,7 +32,7 @@ For this lab, you will be starting with your local image and installing node.js 
 	1. Install Python
 		1. version 2.7 is required.  You can download it here:  `https://www.python.org/download/releases/2.7/`
 		2. Note the location where it is installed.  You will need to add this location to your path later on.
-	2. .Net Frameworks SDK 2.0 (`https://www.microsoft.com/en-us/download/confirmation.aspx?id=19988`)
+	2. Install .Net Frameworks SDK 2.0 (`https://www.microsoft.com/en-us/download/confirmation.aspx?id=19988`)
 	3. Install Visual Studio Express (`https://www.microsoft.com/en-us/download/confirmation.aspx?id=44914`)
 	3. Add Python to the System Path in Windows 7 to the System Path.
 		1. Go to `Control Panel` -> `System` -> `Advanced System Settings`
@@ -63,7 +63,28 @@ For this lab, you will be starting with your local image and installing node.js 
 
 # 1.0b - Install Node.js on Linux
 
-# 1.1	- Creating a `hello-world` Application
+1. install the essentials to run node.js `sudo apt-get install build-essential libssl-dev curl git-core`
+2. install Node Version Manager aka "nvm" by issuing this command here: `curl https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash`
+3. close and restart your terminal as indicated in the terminal window or run this command `source ~/.profile`.
+4. Run this command to confirm your version `nvm --version`
+5. This command will provide documentation on nvm if you wish to learn more about it `nvm help`.  NVM is exceptionally useful as it will allow you to support multiple installations of node.js on your machine, and select the version you want to use.  For our lab today, we only need the one version as indicated in the steps below.
+6. To check and see which versions of node are available, issue this command `nvm ls-remote`.  It will provide a very long list.  For API Connect, we will use a specific version of node.  That is version 4.4.7
+6. To install node 4.4.7 issue this command `nvm install 4.4.7`
+
+	```bash
+	student@ubuntu:~$ nvm install 4.4.7
+	Downloading https://nodejs.org/dist/v4.4.7/node-v4.4.7-linux-x64.tar.xz...
+	Now using node v4.4.7 (npm v2.15.8)
+	```
+
+7. Install API Connect by issuing this command `npm install -g apiconnect` it will take several minutes to complete
+8. Run this command to ensure all is set up properly.  `apic -v` You might be asked to accept the license.  Select the default `yes` and hit enter.
+
+# 1.0c - Install Node.js on Mac- Linux
+
+# 1.1 - Create your Bluemix account
+
+# 1.2	- Creating a `hello-world` Application
 
 1.	We will use the API Connect Developer Toolkit command line interface to create the initial application and explore the created artifacts.
 
@@ -134,7 +155,7 @@ For this lab, you will be starting with your local image and installing node.js 
 >
 > `*.md` files, such as that found in the client directory, are markdown files used for internal documentation.
 
-# 1.2	- Launching the `hello-world` Application
+# 1.3	- Launching the `hello-world` Application
 
 1. Now that we've explored what is created by the application generator, let's move on to the API Designer. From the command line:
 
@@ -173,7 +194,7 @@ Alternatively, if you'd rather not login to bluemix:
 	> 
 	> We used the web-based editor to launch the application. There's also a command provided with the API Connect Developer Toolkit that can be utilized from the terminal to lauch the application: `apic start`
 
-# 1.3	- Testing the `hello-world` Application
+# 1.4	- Testing the `hello-world` Application
 
 1. Click the `Explore` button to switch to the API Explorer view.
 
@@ -243,7 +264,7 @@ Alternatively, if you'd rather not login to bluemix:
 
 	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/stop-app.png)
 
-# 1.4	- Publishing the API to the Developer Portal
+# 1.5	- Publishing the API to the Developer Portal
 
 1. Click the `Publish` icon.
 
@@ -291,7 +312,7 @@ Alternatively, if you'd rather not login to bluemix:
 
 	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/publish-success.png)
 
-# 1.5	- Browsing the API in the Developer Portal
+# 1.6	- Browsing the API in the Developer Portal
 
 1. Open a new tab in the Firefox web browser by clicking on the new tab `+` button.
 
@@ -323,6 +344,8 @@ Alternatively, if you'd rather not login to bluemix:
 
 In this lab you learned:
 
++ How to install node.js and its prerequisites and the API Connect Developer Toolkit on your native OS.
++ Set up you Bluemix Account.
 + How to create a simple LoopBack application
 + How to create a Representational State Transfer (REST) API definition
 + How to test a REST API
