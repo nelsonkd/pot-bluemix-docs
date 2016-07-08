@@ -25,7 +25,7 @@ For this lab, you will be starting with your local image and installing node.js 
 
 # 1.0a - Install Node.js on Windows
 
-1. Installing Node on Windows based machines (Tested on Windows 7):
+1. If you don't have node already installed on your machine, then please proceed.  Otherwise, move on to section 1.1  Installing Node on Windows based machines (Tested on Windows 7):
 	
 1. The following are pre-requisites that need to be installed before installing node:
 
@@ -47,8 +47,7 @@ For this lab, you will be starting with your local image and installing node.js 
 ![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/3.png)
 
 
-
-1. Install Node.JS.
+2. Install Node.js
 	1. Go to this link to install Node `https://nodejs.org/en/download/`
 	2. Select the "LTS version - Recommended for most users".  Version at the top should depict v4.4.7 - includes npm 2.15.8.
 
@@ -61,10 +60,17 @@ For this lab, you will be starting with your local image and installing node.js 
 
 ![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/5.png)
 
+3. You are now ready to move on to section 1.1 below.
 # 1.0b - Install Node.js on Linux
 
-1. install the essentials to run node.js `sudo apt-get install build-essential libssl-dev curl git-core`
-2. install Node Version Manager aka "nvm" by issuing this command here: `curl https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash`
+1. Install the essentials to run node.js `sudo apt-get install build-essential libssl-dev curl git-core`
+2. Install Node Version Manager aka "nvm" by issuing this command here: `curl https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash`
+
+	> ![][info]
+	> When you install `nvm` it will also install `npm` which is the node package manager.
+	> npm is used to install node.js based software packages including the API Connect
+	> Developer Toolkit
+
 3. close and restart your terminal as indicated in the terminal window or run this command `source ~/.profile`.
 4. Run this command to confirm your version `nvm --version`
 5. This command will provide documentation on nvm if you wish to learn more about it `nvm help`.  NVM is exceptionally useful as it will allow you to support multiple installations of node.js on your machine, and select the version you want to use.  For our lab today, we only need the one version as indicated in the steps below.
@@ -78,11 +84,121 @@ For this lab, you will be starting with your local image and installing node.js 
 	```
 
 7. Install API Connect by issuing this command `npm install -g apiconnect` it will take several minutes to complete
-8. Run this command to ensure all is set up properly.  `apic -v` You might be asked to accept the license.  Select the default `yes` and hit enter.
+8. Run this command to ensure all is set up properly.  `apic -v` You might be asked to accept the license.  Select the default `yes` and hit enter. You are now ready to move on to section 1.1 below.
 
 # 1.0c - Install Node.js on Mac- Linux
 
+1. Check to see if node is already installed.
+
+	```
+node -v
+```
+2. Check the version, if it is version 4.4.7 then you can move on to section 1.1 - Create your Bluemix account. However if you would prefer to uninstall and reinstall node using Node Version Manager or if node was not found then please continue.
+3. Remove any existing versions of node. You will only need to complete these steps if node current exists. To remove node completely from your Mac OSX environment run each of the following commands indvidually via terminal. Open a terminal session and type each of the commands below individually. 
+ 
+	```
+sudo rm /usr/local/bin/npm
+sudo rm /usr/local/share/man/man1/node.1
+sudo rm /usr/local/lib/dtrace/node.d
+sudo rm -rf ~/.npm
+sudo rm -rf ~/.node-gyp
+sudo rm /opt/local/bin/node
+sudo rm /opt/local/include/node
+sudo rm -rf /opt/local/lib/node_modules
+sudo rm -rf /usr/local/include/node/
+```
+4. Install Xcode Command Line Tools. Open a terminal and type
+
+	```
+xcode-select --install
+```
+1. This will open a dialog informing you that the comannd linde developer tools are required for install. Press the Install button.
+
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-xcode-tools-confirm-install.png)
+2. Agree to the license
+
+	![Xcode Tools Confirm License](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-xcode-tools-confirm-license.png)
+3. The software install will begin
+
+	![Xcode Tools Installing](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-xcode-tools-progress.png)
+4. The install is complete when you see the "The software was installed" message.
+
+	![Xcode Tools Install Complete](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-xcode-tools-install-complete.png)
+5. Next install git. You may already have a version, but if you want to have the latest version you will need to download the install from https://git-scm.com/download/mac
+6. Once on the install page the download should start immediately. However if it does not start immediately, click the "click here to download manually" link.
+
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-git-install-download.png)
+7. Once the download has completed, you should have a file named similar to git-2.8.1-intel-universal-mavericks.dmg. Double-click to unpack the disk image.
+8. Once the disk image is unpacked and open, double-click the git-2.8.1-intel-universal-mavericks.pkg file. Note that if you downloaded a different version the file name will be refelcted accordingly.
+
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-git-install-package.png)
+9. You may get a dialog box with a message stating that the file can't be opened because it is from an unidentified developer. Click the OK button. Open your System Preferences and select the Security & Privacy component. In the section called "Allow apps downloaded from:" you will notice a message that states '"git-2.8.1-..ericks.pkg" was blocked from opening because it is not from an identified developer.', press the Open Anyway button. This will open the installer for git.
+
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-git-install-unsecure.png)
+	
+	
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-git-install-security.png)
+
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-git-install-start.png)
+10. Follow the wizard to install. The installation is complete when you see a message stating that "The installation was successful."	
+	
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-git-install-complete.png)
+11. Install Node Version Manager aka "nvm" by opening a terminal session and typing the following commands:
+
+	```
+git clone git://github.com/creationix/nvm.git ~/.nvm
+printf "\n\n# NVM\nif [ -s ~/.nvm/nvm.sh ]; then\n\tNVM_DIR=~/.nvm\n\tsource ~/.nvm/nvm.sh\nfi" >> ~/.bashrc
+NVM_DIR=~/.nvm
+source ~/.nvm/nvm.sh
+nvm install 4.4.7
+nvm alias default node
+nvm use node
+```
+> **Note:** You may want to update your .bash file so you do not have to source the shell script everytime. To do that, add the following to your .bash file located in your user home directory:
+> 
+> 	```
+> export NVM_PATH=~/.nvm
+source ~/.nvm/nvm.sh
+
+
+1. Install API Connect by issuing this command `npm install -g apiconnect` it will take several minutes to complete
+8. Run this command to ensure all is set up properly.  `apic -v` You might be asked to accept the license.  Select the default `yes` and hit enter.
+
+
 # 1.1 - Create your Bluemix account
+
+
+1. Open a browser and visit http://www.bluemix.net
+2. Press the SIGN UP button
+ 	
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-bluemix-setup.png)
+3. Complete the form and press the CREATE ACCOUNT button
+	
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-bluemix-setup-account-details.png)
+4. Check your email for your next steps.
+	
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-bluemix-setup-confirmation-email.png)
+5. Open the email and click the Confirm your account link
+	
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-bluemix-setup-confirmation-email-detail.png)
+6. Once confirmed, you will be taken to a page that says Success! To login, click the Log In link
+	
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-bluemix-setup-success.png)
+7. Enter your email address and press the CONTINUE button
+8. Then enter your password on the next page and press the LOG IN button
+9. You will be prompted to create an organization. Enter an organization name (notice that there are suggestions for you). Also select an appropriate region. Then press the CREATE button.
+	
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-bluemix-setup-create-org.png)
+10. Next you will be prompted to create a space such as dev, test, prod, etc. You can name it whatever you would like (again notice the recommendations). Then press the CREATE button.
+	
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-bluemix-setup-create-space.png)
+11. Next you will see the Summary page where you can review your entries. Press the I'm Ready button
+	
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-bluemix-setup-summary.png)
+12. You're account has been created and configured once you see the following screen.
+ 	
+	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-bluemix-setup-complete.png)
+
 
 # 1.2	- Creating a `hello-world` Application
 
@@ -91,7 +207,7 @@ For this lab, you will be starting with your local image and installing node.js 
 1.	From the terminal command line type:
 
 	```bash
-	apic loopback hello-world
+	apic loopback
 	```
 	
 	This command starts the application generator, Yeoman, to help scaffold the new project. Just press enter for each of the three questions.
@@ -162,31 +278,16 @@ For this lab, you will be starting with your local image and installing node.js 
 	```bash
 	apic edit
 	```
-Alternatively, if you'd rather not login to bluemix:
-
-	```bash
-	SKIP_LOGIN=true apic edit
-	```
-
-	```text
-	TODO: add instructions for signing in to bluemix
-	```
-
-1. To test our hello-world services, click on the `run` button to open the application launcher.
-
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/run.png)
 	
-1. Next, click on the `start` button to launch the `hello-world` application.
+1. Next, click on the `start` button located on the bottom panel of the API Designer to launch the `hello-world` application.  On a Windows environment, you might see 2 node windows pop up on your screen.  Minimize, but do not close these windows.
 	
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/start.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/6.png)
 	
 1. Once start completes, you should see a screen similar to this:
 	
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/app-running.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/7.png)
 	
-1. Notice that once the application is up and running, stop and restart buttons will appear on the right side of the screen:
-	
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/stop-restart.png)
+1. Notice that once the application is up and running, stop and restart buttons will appear on the bottom side of the screen:
 	
 	At this point we're ready to Explore and test our services.
 
@@ -198,7 +299,7 @@ Alternatively, if you'd rather not login to bluemix:
 
 1. Click the `Explore` button to switch to the API Explorer view.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/explore.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/8.png)
 	
 	You will see all the exposed service paths displayed.
 	
@@ -235,8 +336,9 @@ Alternatively, if you'd rather not login to bluemix:
 	> ![][troubleshooting]
   >
   > If you see a 500 error like the one below, make sure you press the `Generate` button before you press the `Call operation` button again. Otherwise, you're trying to create a duplicate note.
-	
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/duplicateRecordError.png)
+
+![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/duplicateRecordError.png)
+
 
 1. Once you have created one note, go ahead and create another one or two.
 
@@ -262,7 +364,7 @@ Alternatively, if you'd rather not login to bluemix:
 
 1. Click on the `Stop` button to stop the application.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/stop-app.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/9.png)
 
 # 1.5	- Publishing the API to the Developer Portal
 
@@ -272,31 +374,23 @@ Alternatively, if you'd rather not login to bluemix:
 
 1. Select `Add and Manage Targets` from the menu.
 
-1. Select `Add a different target`.
+1. Select `Add IBM Bluemix target`.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/add-target.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/15.png)
 
-1. Provide connection information to sign into the IBM API Connect management server, then click the `Sign in` button:
-
-	> API Connect host address: `mgr.think.ibm`
+1. Provide connection information to sign into the IBM API Connect Bluemix service then click the `Sign in` button: **Note you should be logged in already to Bluemix, so you should not need to reauthenticate.  It will automatically populate your information and have the `Sandbox` catalog already selected, so at this point you only need to click `Next`.
 	
-	> Username: `student@think.ibm`
-	
-	> Password: `Passw0rd!`  
-	
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/publish-target-signin.png)
-
-1. On the "Select an organization and catalog" screen, choose the `Sandbox` catalog and click the `Next` button.
-
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/publish-sandbox-catalog.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/10.png)
 
 1. On the "Select an App" screen, choose `None` application and click the `Save` button.
 
-	Our offline toolkit environment is now configured to speak to the central management server.
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/11.png)
 
-1. Click `Publish` button once more and select our target, indicated by the grey highlighting:
+	Our offline toolkit environment is now configured to speak to API Connect on Bluemix
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/publish-target.png)
+1. Click `Publish` button once more and select our target:
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/12.png)
 
 1. Here we have the opportunity to select what gets published. If we were working on multiple API products as part of this project, we could choose specific ones to publish.
 	
@@ -314,33 +408,71 @@ Alternatively, if you'd rather not login to bluemix:
 
 # 1.6	- Browsing the API in the Developer Portal
 
-1. Open a new tab in the Firefox web browser by clicking on the new tab `+` button.
+1. Open a new tab in your web browser by clicking on the new tab `+` button.
 
 	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/new-tab.png)
 
-1. A bookmark is already saved for the `Portal`, click on the bookmark to open the portal home page.
+1. Log into your Bluemix Account using this url: `https://new-console.ng.bluemix.net/`
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/portal-bookmark.png)
+1. Via the dashboard, click on the `APIs` Icon.
 
-1. Click on the `API Products` link to see the available products published to the portal.
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/16.png)
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/api-products-link.png)
+1. Click on your `API Connect` instance
 
-1. You should see the published `hello-world` API in the list of products.
+![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/17.png)
 
-  ![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/publishedAPI.png)
+2. Click on `Launch API Manager` to launch your API Manager
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/18.png)
+
+3. Click on your `Sandbox` Catalog
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/19.png)
+
+4. Click on `Settings`
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/20.png)
+
+5. Here you will see that you have no developer portal set up.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/21.png)
+
+5. Select the `IBM Developer Portal` Radio Button to create your own custom portal that is tied to your catalog and then click `Save`. It will automatically generate the portal URL and the portal as well.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/22.png)
+
+6. A pop up screen will let you know that the process to create your portal has started.
+
+7. It might take some time for your developer portal to get created, but usually the process is pretty quick.  If this piece doesn't work for you right away, move on to the next lab and circle back to this lab in a bit.  Once the portal is done creating, you will receive an email.  If it still doesn't work by the time you get to the later labs, inform your instructor.
+
+6. Once the process is complete, click on the link of the portal URL as seen in the screenshot above in step #5.
+
+7. This will bring you to your portal login page.  In order to view the API we have, we will need to register ourself as a developer on the portal. 
+ 
+8. Click on `Login` at the top right
+![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/24.png)
+
+9. Enter in the name of a Development Organization.  API Products are Published to Development Organizations that will be consuming these APIs
+![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/25.png)
+
+10. Once you are authenticated in, you can then Browse the `API Products` and see your `hello-world` product that is now published to your environment.
+![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/26.png)
+
+11. At this point we will stop, as we will be building additional apis and services that will be published to the portal.
 
 	It should be noted that the hello-world application has more to it than we've shown in this lab. You're encouraged to dig in and discover the custom method that's implemented. In future labs, we'll be doing more work in the Developer Portal. For instance we'll be customizing the portal theme, registering an application, subscribing to APIs and testing them from a separate consumer application.
 
+
 1. Close the `Firefox` web browser. If a warning is presented about closing multiple tabs, deselect the option to notify you in the future and click the `Close Tabs` button.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/master/lab-guide/img/lab1/close-firefox.png)
+
 
 1. In the terminal, use the `control+c` keyboard command to quit the API Designer program.
 
 # Lab 1 - Conclusion
 
-**Congratulations!** You have developed and published your first API!
+**Congratulations!** You have installed node.js, the API Connect developer toolkit and have developed and published your first API!
 
 In this lab you learned:
 
