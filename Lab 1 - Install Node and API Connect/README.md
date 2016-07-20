@@ -206,24 +206,40 @@ source ~/.nvm/nvm.sh
 	![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/27.png)
 13. Type `Api connect` in the search box next to the magnifying glass icon
 14. Click on the `API Connect` Icon to install a new instance of API Connect into your Bluemix space.
+
 	![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/28.png)
+
 15. Click on the `APIs` tile.
+
 	![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/29.png)
+
 16. Click on the `API Connect` tab.
+
 	![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/30.png)
+
 17. Click on the `Create` button.
+
 	![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/31.png)
+
 18. In the `Add Service` frame on the right side of the page, fill in the information based on your needs.
 	- SPACE – The name of your Bluemix Space to deploy the API Connect Service
 	- APP – Keep the default “Leave unbound”
 	- Service Name – The name you want to give to your API Connect implementation if required
 	- Selected Plan – Keep the default
+
+
 17. Click on the `Create` button as shown below.
+
 	![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/32.png)
+
 18. The API Connect service is now deployed.  To confirm the instance is properly created, click on `Launch API Manager`
+
 	![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/33.png)
+
 18. If you are able to see your `Sandbox` catalog as shown below, this means the process of creating and setting up your Bluemix account to use API Connect is now complete.  Close your browser window and proceed to section 1.2 below
+
 	![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/34.png)
+
 
 
 # 1.2	- Creating a `hello-world` Application
