@@ -6,6 +6,7 @@ In this lab, you’ll start from scratch to install Node.js and the components o
 In the following lab, you will learn:
 
 + How to install Node.js on to your machine
++ How to enable API Connect on your Bluemix account
 + How to install the APIC Developer Toolkit
 + How to create a simple LoopBack application
 + How to create a Representational State Transfer (REST) API definition 
@@ -18,14 +19,16 @@ In this tutorial, you will be starting from scratch to set up your development e
 
 ---
 # Lab 1	- Before you begin
-For this lab, you will be starting with your local image and installing node.js and the developer toolkit.  The instructions you will follow will vary by the host operating system you are using. The three host OS's supported by this are `Windows`, `Linux - Intel` and `Linux - Mac`.  Skip to the section for your appropriate operating system.
+For this lab, you will be starting with your local image and installing node.js and the developer toolkit.  After that, if you do not already have a Bluemix account, you will be creating one for you and enabling the API Connect Essentials service on your account. The instructions you will follow will vary by the host operating system you are using. The three host OS's supported by this are `Windows`, `Linux - Intel` and `Linux - Mac`.  Skip to the section for your appropriate operating system.
 
 ---
 # Lab 1	- Step by Step Lab Instructions
 
 # 1.0a - Install Node.js on Windows
 
-1. If you don't have node already installed on your machine, then please proceed.  Otherwise, move on to section 1.1  Installing Node on Windows based machines (Tested on Windows 7):
+1. If you don't have node already installed on your machine, then please proceed.  Otherwise, move on to section 1.1  
+
+2. Installing Node on Windows based machines (Tested on Windows 7):
 	
 1. The following are pre-requisites that need to be installed before installing node:
 
@@ -198,6 +201,29 @@ source ~/.nvm/nvm.sh
 12. You're account has been created and configured once you see the following screen.
  	
 	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-bluemix-setup-complete.png)
+
+12. The next step is to enable the API Connect service on your Bluemix account.  To start the process, click on the `CATALOG` tab in the upper right hand side of the screen
+![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/27.png)
+13. Type `Api connect` in the search box next to the magnifying glass icon
+14. Click on the `API Connect` Icon to install a new instance of API Connect into your Bluemix space.
+![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/28.png)
+15. Click on the `APIs` tile.
+![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/29.png)
+16. Click on the `API Connect` tab.
+![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/30.png)
+17. Click on the `Create` button.
+![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/31.png)
+18. In the `Add Service` frame on the right side of the page, fill in the information based on your needs.
+	- SPACE – The name of your Bluemix Space to deploy the API Connect Service
+	- APP – Keep the default “Leave unbound”
+	- Service Name – The name you want to give to your API Connect implementation if required
+	- Selected Plan – Keep the default
+17. Click on the `Create` button as shown below.
+![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/32.png)
+18. The API Connect service is now deployed.  To confirm the instance is properly created, click on `Launch API Manager`
+![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/33.png)
+18. If you are able to see your `Sandbox` catalog as shown below, this means the process of creating and setting up your Bluemix account to use API Connect is now complete.  Close your browser window and proceed to section 1.2 below
+![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/34.png)
 
 
 # 1.2	- Creating a `hello-world` Application
