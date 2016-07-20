@@ -202,8 +202,11 @@ source ~/.nvm/nvm.sh
  	
 	![Xcode Tools Install](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/mac-bluemix-setup-complete.png)
 
+# 1.1a - Enable the API Connect Service on your Bluemix Account
+
 12. The next step is to enable the API Connect service on your Bluemix account.  To start the process, click on the `CATALOG` tab in the upper right hand side of the screen
 	![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/27.png)
+
 13. Type `Api connect` in the search box next to the magnifying glass icon
 14. Click on the `API Connect` Icon to install a new instance of API Connect into your Bluemix space.
 
