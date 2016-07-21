@@ -12,8 +12,7 @@ In the following lab, you will learn:
 + How to create a multi-model Loopback application
 + How to create a Representational State Transfer (REST) API definition using IBM Connect API Designer
 + How to create a Representational State Transfer (REST) API definition using IBM Connect Command Line
-+ How to use the Loopback MySQL Connector
-+ How to use the Loopback MongodDB Connector
++ How to use the Loopback Cloudant Connector
 + How to test a REST API
 + How to create relationships between models
 
@@ -29,7 +28,7 @@ In the following lab, you will learn:
 
 1. Open up a new window for your Host Operating systems' command line interface (e.g. `cmd` for Windows or `terminal` for Linux).
 
-1. Create a project directory in the student's home folder called ThinkIBM. In the terminal, type:
+1. Create a project directory in the on your filesystem called ThinkIBM. 
 
 	```bash
 	mkdir ThinkIBM
