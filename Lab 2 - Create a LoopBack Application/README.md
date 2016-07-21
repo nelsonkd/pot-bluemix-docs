@@ -558,8 +558,7 @@ To verify that the relationship has been created, you will open the API Connect 
 + How to create a multi-model LoopBack application
 + How to create a Representational State Transfer (REST) API definition using IBM Connect API Designer
 + How to create a Representational State Transfer (REST) API definition using IBM Connect Command Line
-+ How to use the LoopBack MySQL Connector
-+ How to use the LoopBack MongodDB Connector
++ How to use the LoopBack Cloudant Connector
 + How to test a REST API
 + How to create relationships between models
 
