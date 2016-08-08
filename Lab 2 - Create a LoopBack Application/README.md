@@ -157,7 +157,7 @@ There are two parts to this. First is the definition of how to connect to the ba
 
 ## 2.5 - Create a Model for the Inventory Items
 
-In this section, you will define the `item` data model for our `inventory` API and attach it to the MySQL data source. LoopBack is a data model driven framework. The properties of the data model will become the JSON elements of the API request and response payloads.
+In this section, you will define the `item` data model for our `inventory` API and attach it to the Cloudant data source. LoopBack is a data model driven framework. The properties of the data model will become the JSON elements of the API request and response payloads.
 
 1. Click the `Models` tab.
 
