@@ -513,18 +513,26 @@ For this lab, you will be starting with your local image and installing node.js 
 
 7. It might take some time for your developer portal to get created, but usually the process is pretty quick.  If this piece doesn't work for you right away, move on to the next lab and circle back to this lab in a bit.  Once the portal is done creating, you will receive an email.  If it still doesn't work by the time you get to the later labs, inform your instructor.
 
-6. Once the process is complete, click on the link of the portal URL as seen in the screenshot above in step #5.
+6. Once the process is complete, click on the link of the portal URL as seen in the screenshot above in step #5.  It is highly suggested that you create a bookmark for your developer portal in your browser so you can get back to it easily later.
 
 7. This will bring you to your portal login page.  In order to view the API we have, we will need to register ourself as a developer on the portal. 
- 
-8. Click on `Login` at the top right
-![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/24.png)
 
-9. Enter in the name of a Development Organization.  API Products are Published to Development Organizations that will be consuming these APIs
-![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/25.png)
+	> ![][important]
+	> 
+	> When you first create your developer portal it will create an `admin` user that is used to administrate the site.  This admin user cannot be used as a user to register applications and subscribe to API Products. So the next few steps will be devoted to creating a new developer user.
+
+8. Click on `Logout` at the top right to log out of the portal as the admin user. 
+
+8. Click on `Create an account` at the top right
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/35.png)
+	
+9. Enter in your account information for the developer account.  This must be a different email address than your bluemix account.  Click `Create New Account` once all the requisite data in the form has been filled out.
+
+10. A validation email will be sent out to the email address used at sign up.  Click on the validation link and then you will have completed the sign up process and will be authenticated into the page.
 
 10. Once you are authenticated in, you can then Browse the `API Products` and see your `hello-world` product that is now published to your environment.
-![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/26.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/26.png)
 
 11. At this point we will stop, as we will be building additional apis and services that will be published to the portal.
 
