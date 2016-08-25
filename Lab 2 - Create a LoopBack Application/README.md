@@ -241,7 +241,13 @@ The item table in the database has 6 columns that will need to mapped as well. T
 	
 	> Description: `item rating`
 
+1. Click on `Host` from the API editor menu. Remove `$(catalog.host)` from the Host field. We will keep this blank.
 
+	> ![][troubleshooting]
+	> 
+	> The host field will show a red line indicating that the field is required. You may ignore this message.
+
+	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/fin_no_host.png)
 
 1. Scroll to the top of the page and click the `Save` button to save the data model.
 
