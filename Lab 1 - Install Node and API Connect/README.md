@@ -43,10 +43,10 @@
       <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
     <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
     <link rel="assets" href="https://assets-cdn.github.com/">
-    <link rel="web-socket" href="wss://live.github.com/_sockets/NzQ4MDg3NTpjOWViNDA4ZWQxYjdhNTk1NGYzNWEwZGU5NDlmMTA4Njo4M2Y5MzBkZjE5MTU4YjZjODE4ZjY3NDU2NDc4NDMyNWI2OTE5Mjk3NTJkNzNkYjk2NGM3YzlmNDgzMGIwMTUy--fa479972ec03dcc79d683700ec88b5f18b39356d">
+    <link rel="web-socket" href="wss://live.github.com/_sockets/NzQ4MDg3NTpjOWViNDA4ZWQxYjdhNTk1NGYzNWEwZGU5NDlmMTA4Njo1YjY1M2UyNWY3ZmRmNGExOWUyMzJiZTA2NWJjYmM5ODYyMjdhMzc5ZjkwNmQ5OTIxYjJiNmM4OWFmMTZlMTY3--65d25355387dd6e9bff709f2968bc484a39800f9">
     <meta name="pjax-timeout" content="1000">
     <link rel="sudo-modal" href="/sessions/sudo_modal">
-    <meta name="request-id" content="43ADA7AB:1B48:C66AA6:57D1340A" data-pjax-transient>
+    <meta name="request-id" content="43ADA7AB:1B46:A89375:57D16765" data-pjax-transient>
 
     <meta name="msapplication-TileImage" content="/windows-tile.png">
     <meta name="msapplication-TileColor" content="#ffffff">
@@ -56,7 +56,7 @@
 <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
     <meta name="google-analytics" content="UA-3769691-2">
 
-<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="43ADA7AB:1B48:C66AA6:57D1340A" name="octolytics-dimension-request_id" /><meta content="7480875" name="octolytics-actor-id" /><meta content="alley28" name="octolytics-actor-login" /><meta content="415017f8b97bf4cf0ebb7405aaee642a35b4dc60af75c33f532e215dececb9dd" name="octolytics-actor-hash" />
+<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="43ADA7AB:1B46:A89375:57D16765" name="octolytics-dimension-request_id" /><meta content="7480875" name="octolytics-actor-id" /><meta content="alley28" name="octolytics-actor-login" /><meta content="415017f8b97bf4cf0ebb7405aaee642a35b4dc60af75c33f532e215dececb9dd" name="octolytics-actor-hash" />
 <meta content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" name="analytics-location" />
 
 
@@ -69,7 +69,7 @@
     <meta name="user-login" content="alley28">
 
         <meta name="expected-hostname" content="github.com">
-      <meta name="js-proxy-site-detection-payload" content="NzBmNGU0MDgzZWEwNTE3ZTY4NWNhNmRiZDk4NmJjMGRhNzA0MjcyODNmNzljYTY2OWE5MTk3OTc2NDA0YmY3NXx7InJlbW90ZV9hZGRyZXNzIjoiNjcuMTczLjE2Ny4xNzEiLCJyZXF1ZXN0X2lkIjoiNDNBREE3QUI6MUI0ODpDNjZBQTY6NTdEMTM0MEEiLCJ0aW1lc3RhbXAiOjE0NzMzMjgxMzh9">
+      <meta name="js-proxy-site-detection-payload" content="NTY0MDNlMTc5NGVlZjJkOWZmMjdjZmVmNGE0MmEwZTZjMDU2NDhmZTMzOGZkYTFjMTU1ODY2NjhiN2E2Y2EwOHx7InJlbW90ZV9hZGRyZXNzIjoiNjcuMTczLjE2Ny4xNzEiLCJyZXF1ZXN0X2lkIjoiNDNBREE3QUI6MUI0NjpBODkzNzU6NTdEMTY3NjUiLCJ0aW1lc3RhbXAiOjE0NzMzNDEyODh9">
 
 
       <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#4078c0">
@@ -222,7 +222,7 @@
           Settings
         </a>
 
-        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/logout" class="logout-form" data-form-nonce="f0d6ef5a7e6c8f662cd8473b6eb4a4fe11e43aa6" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="nG+BdYA7S094fjMpk7v9Lh8wZkwI3ECEb4U7gpuWVfoSVl12pSzDWtHxt22yWX6TF76fmoMNGm9WQhcZbt2ilQ==" /></div>
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/logout" class="logout-form" data-form-nonce="f0d6ef5a7e6c8f662cd8473b6eb4a4fe11e43aa6" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="XRsYWotrJ8oHLJTWG44VBpfmn6w+2vQnpLXLi0eexISRQjNGpGtfxudzhWohCkH/0MsxMZm0wVZpmTTwR14uqg==" /></div>
           <button class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
             Sign out
           </button>
@@ -258,7 +258,7 @@
 <ul class="pagehead-actions">
 
   <li>
-        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-form-nonce="f0d6ef5a7e6c8f662cd8473b6eb4a4fe11e43aa6" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="sRTxu4fZ44N6UpprLWa1e7ps8FEYG93rZbbm373zSxat6TavZTCR2hBkQUD3BaRMSyEoar/9yeTTCid/WWEJQQ==" /></div>      <input class="form-control" id="repository_id" name="repository_id" type="hidden" value="66486757" />
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-form-nonce="f0d6ef5a7e6c8f662cd8473b6eb4a4fe11e43aa6" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="lZaTejfi+qYg3r48+oTsN4znwx4Gd+n5/GyEmp1YEw2875IYJQNZLZT4NgpNS4AnuXAka0KZ9chauRrzhXIuUg==" /></div>      <input class="form-control" id="repository_id" name="repository_id" type="hidden" value="66486757" />
 
         <div class="select-menu js-menu-container js-select-menu">
           <a href="/kenatibm/pot-bluemix-docs/subscription"
@@ -335,7 +335,7 @@
     
   <div class="js-toggler-container js-social-container starring-container ">
 
-    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/kenatibm/pot-bluemix-docs/unstar" class="starred" data-form-nonce="f0d6ef5a7e6c8f662cd8473b6eb4a4fe11e43aa6" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="tfS4jwWWu+0By/RxPc3/+3x6CoLZotpmVyXyo8T5iuuUc5XQsDjb6Vj/Pr3OcIg8zUn0mixNt7fdCsn6l9c9jQ==" /></div>
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/kenatibm/pot-bluemix-docs/unstar" class="starred" data-form-nonce="f0d6ef5a7e6c8f662cd8473b6eb4a4fe11e43aa6" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="o/48IApY4niIQQkFZighFn4UzkGPV1tQ2ddoaw6uB9Ns+cWhTkEUbGCsIKUuCyoJJBNbhk1O3ARlGZwSPGtP7g==" /></div>
       <button
         class="btn btn-sm btn-with-count js-toggler-target"
         aria-label="Unstar this repository" title="Unstar kenatibm/pot-bluemix-docs"
@@ -348,7 +348,7 @@
           0
         </a>
 </form>
-    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/kenatibm/pot-bluemix-docs/star" class="unstarred" data-form-nonce="f0d6ef5a7e6c8f662cd8473b6eb4a4fe11e43aa6" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="z7LxfBjaYIHNzpBewnk4vRI69vJf62JkFeZNDm7pgb88xxJDy7vU2YpU2E1PQOljLECrI1hojgNZNC87TPFU3w==" /></div>
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/kenatibm/pot-bluemix-docs/star" class="unstarred" data-form-nonce="f0d6ef5a7e6c8f662cd8473b6eb4a4fe11e43aa6" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="dj23Dg+M3uivc83PG2nGT9U9RtDLDE9KrHtNg8cbfb59+ukikAy9FWgjpJw9bcTt0ajFH7uGF0nzmf80FeJ6LA==" /></div>
       <button
         class="btn btn-sm btn-with-count js-toggler-target"
         aria-label="Star this repository" title="Star kenatibm/pot-bluemix-docs"
@@ -536,16 +536,51 @@
   </div>
 </div>
 
-<include-fragment class="commit-tease" src="/kenatibm/pot-bluemix-docs/contributors/master/Lab%201%20-%20Install%20Node%20and%20API%20Connect/README.md">
-  <div>
-    Fetching contributors&hellip;
+
+  <div class="commit-tease">
+      <span class="float-right">
+        <a class="commit-tease-sha" href="/kenatibm/pot-bluemix-docs/commit/511eb5ff4da9bf72d3d56e8d5d8688767d4a8122" data-pjax>
+          511eb5f
+        </a>
+        <relative-time datetime="2016-08-24T22:33:40Z">Aug 24, 2016</relative-time>
+      </span>
+      <div>
+        <img alt="@nelsonkd" class="avatar" height="20" src="https://avatars3.githubusercontent.com/u/5487817?v=3&amp;s=40" width="20" />
+        <a href="/nelsonkd" class="user-mention" rel="contributor">nelsonkd</a>
+          <a href="/kenatibm/pot-bluemix-docs/commit/511eb5ff4da9bf72d3d56e8d5d8688767d4a8122" class="message" data-pjax="true" title="Rebuilt PDFs">Rebuilt PDFs</a>
+      </div>
+
+    <div class="commit-tease-contributors">
+      <button type="button" class="btn-link muted-link contributors-toggle" data-facebox="#blob_contributors_box">
+        <strong>3</strong>
+         contributors
+      </button>
+          <a class="avatar-link tooltipped tooltipped-s" aria-label="alley28" href="/kenatibm/pot-bluemix-docs/commits/master/Lab%201%20-%20Install%20Node%20and%20API%20Connect/README.md?author=alley28"><img alt="@alley28" class="avatar" height="20" src="https://avatars2.githubusercontent.com/u/7480875?v=3&amp;s=40" width="20" /> </a>
+    <a class="avatar-link tooltipped tooltipped-s" aria-label="nelsonkd" href="/kenatibm/pot-bluemix-docs/commits/master/Lab%201%20-%20Install%20Node%20and%20API%20Connect/README.md?author=nelsonkd"><img alt="@nelsonkd" class="avatar" height="20" src="https://avatars3.githubusercontent.com/u/5487817?v=3&amp;s=40" width="20" /> </a>
+    <a class="avatar-link tooltipped tooltipped-s" aria-label="bakert-ibm" href="/kenatibm/pot-bluemix-docs/commits/master/Lab%201%20-%20Install%20Node%20and%20API%20Connect/README.md?author=bakert-ibm"><img alt="@bakert-ibm" class="avatar" height="20" src="https://avatars3.githubusercontent.com/u/15231660?v=3&amp;s=40" width="20" /> </a>
+
+
+    </div>
+
+    <div id="blob_contributors_box" style="display:none">
+      <h2 class="facebox-header" data-facebox-id="facebox-header">Users who have contributed to this file</h2>
+      <ul class="facebox-user-list" data-facebox-id="facebox-description">
+          <li class="facebox-user-list-item">
+            <img alt="@alley28" height="24" src="https://avatars0.githubusercontent.com/u/7480875?v=3&amp;s=48" width="24" />
+            <a href="/alley28">alley28</a>
+          </li>
+          <li class="facebox-user-list-item">
+            <img alt="@nelsonkd" height="24" src="https://avatars1.githubusercontent.com/u/5487817?v=3&amp;s=48" width="24" />
+            <a href="/nelsonkd">nelsonkd</a>
+          </li>
+          <li class="facebox-user-list-item">
+            <img alt="@bakert-ibm" height="24" src="https://avatars1.githubusercontent.com/u/15231660?v=3&amp;s=48" width="24" />
+            <a href="/bakert-ibm">bakert-ibm</a>
+          </li>
+      </ul>
+    </div>
   </div>
 
-  <div class="commit-tease-contributors">
-    <img alt="" class="loader-loading float-left" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32-EAF2F5.gif" width="16" />
-    <span class="loader-error">Cannot retrieve contributors at this time</span>
-  </div>
-</include-fragment>
 <div class="file">
   <div class="file-header">
   <div class="file-actions">
@@ -563,12 +598,12 @@
             <svg aria-hidden="true" class="octicon octicon-device-desktop" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M15 2H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h5.34c-.25.61-.86 1.39-2.34 2h8c-1.48-.61-2.09-1.39-2.34-2H15c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm0 9H1V3h14v8z"></path></svg>
         </a>
 
-        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/kenatibm/pot-bluemix-docs/edit/master/Lab%201%20-%20Install%20Node%20and%20API%20Connect/README.md" class="inline-form js-update-url-with-hash" data-form-nonce="f0d6ef5a7e6c8f662cd8473b6eb4a4fe11e43aa6" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="FSAf+ejrImF/WUQHnj7eieWI6OcJI2M1X2PLqA4T3q3oR1jjG7w5K3YWsblDKFbu+15ZPygEfeiv2QFgmcBZEA==" /></div>
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/kenatibm/pot-bluemix-docs/edit/master/Lab%201%20-%20Install%20Node%20and%20API%20Connect/README.md" class="inline-form js-update-url-with-hash" data-form-nonce="f0d6ef5a7e6c8f662cd8473b6eb4a4fe11e43aa6" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ltxJ8N8/k0XeKtbOCILd7aOxaIFuW7uqnL41W0yKLg1NaEJEtQsfOOgEuB+rvTnues8igUbTbZ66WKCYkNQm1A==" /></div>
           <button class="btn-octicon tooltipped tooltipped-nw" type="submit"
             aria-label="Fork this project and edit the file" data-hotkey="e" data-disable-with>
             <svg aria-hidden="true" class="octicon octicon-pencil" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"></path></svg>
           </button>
-</form>        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/kenatibm/pot-bluemix-docs/delete/master/Lab%201%20-%20Install%20Node%20and%20API%20Connect/README.md" class="inline-form" data-form-nonce="f0d6ef5a7e6c8f662cd8473b6eb4a4fe11e43aa6" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="sLDz6m4oFexrUIsqJF8RYp8ChLJjc2SPdnm1UgiesMqHgZ7DRn5MP9wwag0VvXHnjFFBBtfOELEL5uZfHRzgkg==" /></div>
+</form>        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/kenatibm/pot-bluemix-docs/delete/master/Lab%201%20-%20Install%20Node%20and%20API%20Connect/README.md" class="inline-form" data-form-nonce="f0d6ef5a7e6c8f662cd8473b6eb4a4fe11e43aa6" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="v3F8wTYbcGHD2E3juPQj0+jEhlP5AU/Udzsg+tfv/wCR7xInjpizgRGWV+lY9iaNkNmEsTqeCV21P47/P1KMJg==" /></div>
           <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
             aria-label="Fork this project and delete the file" data-disable-with>
             <svg aria-hidden="true" class="octicon octicon-trashcan" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"></path></svg>
@@ -1199,7 +1234,7 @@ SKIP_LOGIN=true apic edit
       <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" version="1.1" viewBox="0 0 16 16" width="24"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
 </a>
     <ul class="site-footer-links">
-      <li>&copy; 2016 <span title="0.11174s from github-fe151-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+      <li>&copy; 2016 <span title="0.13614s from github-fe129-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
         <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
         <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
         <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
