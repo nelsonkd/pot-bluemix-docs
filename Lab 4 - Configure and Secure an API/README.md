@@ -10,14 +10,7 @@ In the following lab, you will learn:
 + How to create an OAuth 2.0 Provider, specifically using the Resource Owner Password grant type.
 + How to secure an existing API using the newly created OAuth 2.0 Provider.
 + How to add catalog-specific properties to an API.
-+ How to assemble an API implementation using the activity-log, set-variable and invoke policies
-
-<!---
-FIXME: Because of a limitation in the proxy policy not being able to pass
-the Host header, we'll need to use the Invoke policy. One downfall though
-of using invoke is that the filter parameters don't work.
--->
-
++ How to assemble an API implementation using the activity-log, set-variable and proxy policies
 
 ---
 # Lab 4 - Case Study Used in this Tutorial
@@ -40,7 +33,7 @@ In this tutorial, you will secure the Inventory API to protect the resources exp
 
 	You should see the APIs view, and a single API listed. The `inventory` API was automatically created during loopback app generation. We will edit this API at a later step.
 	
-	![alt text](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab4/startapidesigner.png)
+	![alt text](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/startapidesigner.png)
 
 ## 4.2 - Adding a New OAuth 2.0 Provider API
 
@@ -54,15 +47,13 @@ In this tutorial, you will secure the Inventory API to protect the resources exp
 	
 	> Add to an existing product: `inventory 1.0.0`
 	
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab4/newoauthprops.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/newoauthprops.png)
 
 1. The API Editor will launch. If this is your first time using the API Editor, you will see an informational message. When you are ready to proceed, click the `Got it!` button to dismiss the message.  
 	
 	The API Editor opens to the newly created `oauth` API. The left hand side of the view provides shortcuts to various elements within the API definition: Info, Host, Base Path, etc. By default, the API Editor opens to the `Design` view, which provides a user-friendly way to view and edit your APIs. You may notice additional tabs labeled `Source` and `Assemble`. We will work with these views as well.
 	
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab4/newoauth-start.png)
-
-1. Navigate to the `Host` section of the API. Remove `$(catalog.host)` from the Host field, as we want to keep this blank.
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/newoauth-start.png)
 
 1. Navigate to the `OAuth 2` section.
 
@@ -82,7 +73,7 @@ In this tutorial, you will secure the Inventory API to protect the resources exp
 
 1. We want to configure this provider to *only* support the Resource Owner Password Credentials grant type. Deselect the `Implicit`, `Application` and `Access Code` Grants, but leave `Password` checked.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab4/oauthgranttypes.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/oauthgranttypes.png)
 
 1. Set the remaining OAuth 2 settings as follows:
 
@@ -90,21 +81,25 @@ In this tutorial, you will secure the Inventory API to protect the resources exp
 	
 	> Authenticate application users using: `Authentication URL`
 	
-	> Authentication URL: `http://thinkibm-services.mybluemix.net/auth`
+	> Authentication URL: `https://thinkibm-services.mybluemix.net/auth`
 	
 	> Turn off the `Enable revocation` option
 	
 	When complete, your settings should look like this:
 	
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab4/1.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/1.png)
 
 	> ![][important]
 	> 
 	> The scope defined here must be identical to the scope that we define later when telling the `inventory` API to use this OAuth config. A common mistake is around case sensitivity. To avoid running into an error later, make sure that your scope is set to all **lowercase**.
 
+1. Switch to the `Assemble` tab.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/assembly.png)
+
 1. Click the `Save` icon in the top right corner of the editor to save your changes.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab4/save-icon.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/save-icon.png)
 
 ## 4.3 - Configuring and Securing the Inventory API
 
@@ -130,7 +125,7 @@ In this tutorial, you will secure the Inventory API to protect the resources exp
 
 	Click the `+` icon in the **Security Definitions** section and select `OAuth` from the menu.  
 	
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab4/inv-addoauthsecuritydef.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/inv-addoauthsecuritydef.png)
 	
 	A new security definition is created for you, called `oauth-1 (OAuth)`.
 
@@ -150,7 +145,7 @@ In this tutorial, you will secure the Inventory API to protect the resources exp
 	> 
 	> The Token URL will be based upon the location of your Org and Catalog running on Bluemix public.  You can find your base URL by logging into the API Manager on Bluemix and go into your catalog (the default catalog created is `Sandbox`).  From there go into `Settings`.  If you scroll down a bit you will see what your `API Endpoint` is called, simply copy and paste the contents into the token URL
 
-![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab4/2.png)
+![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/2.png)
 
 1. Click the `+` icon in the **Scopes** section to create a new scope. Set the following properties.  Note the organization portion of the token URL will be different for each student. 
 
@@ -158,11 +153,11 @@ In this tutorial, you will secure the Inventory API to protect the resources exp
 	
 	> Description: `Access to all inventory resources`
 	
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab4/3.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/3.png)
 
 1. Navigate to the `Security` section and check the `oauth (OAuth)` checkbox.  
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab4/inv-security-addoauth.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/inv-security-addoauth.png)
 	
 	Now that the API is secured using our OAuth provider, we can define how the API should behave when called. In the next two sections, we will configure the `inventory` API to call our inventory application which was published at the end of Lab 3.
 
@@ -186,7 +181,7 @@ For example, we will configure the `inventory` API to invoke a backend service. 
 	
 	> Value: your specific value e.g. `https://apiconnect-abcedf84-ce2f-aaaa-8ab1-6efd9f1fd6ee.someorg-dev.apic.mybluemix.net`
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab4/4.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/4.png)
 
 	
 	>![][important]
@@ -196,20 +191,20 @@ For example, we will configure the `inventory` API to invoke a backend service. 
 
 1. Save your changes.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab4/save-icon.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/save-icon.png)
 
 ## 4.5 - Defining API Processing Behavior
 An API Assembly provides collection of policies which are enforced and executed on the API Gateway. Policies include actions like modifying the logging behavior and altering the message content or headers. Additionally, if the out of the box policies do not meet your specific needs, you may opt to create your own policy and have it available for API designers through the API Connect UI.
 
 1. Switch to the `Assemble` tab. A simple assembly has been created for you.  
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab4/inv-assembly-start.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/inv-assembly-start.png)
 
 1. Modify your assembly to use DataPower Gateway policies.
 	
 	Select the `DataPower Gateway policies` radio button.
 	
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab4/filter-datapowerpolicies.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/filter-datapowerpolicies.png)
 
 1. Add an `activity-log` policy to the assembly and configure it to log API payload.  
 
@@ -219,7 +214,7 @@ An API Assembly provides collection of policies which are enforced and executed 
 
 	Under `Content` select `payload` from the drop-down list.  
 	
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab4/inv-assembly-logpayload.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/inv-assembly-logpayload.png)
 
 1. Click on the `X` to close the activity-log editor menu.
 
@@ -229,7 +224,7 @@ An API Assembly provides collection of policies which are enforced and executed 
 
 	Update the URL to be: `$(app-server)$(request.path)`
 	
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab4/invoke_url.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/invoke_url.png)
 	
 	> ![][info]
 	> 
@@ -239,25 +234,25 @@ An API Assembly provides collection of policies which are enforced and executed 
 
 1. Save your changes.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab4/save-icon.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/save-icon.png)
 
 1. Create a new Product called `InventoryTest`. We are going to use this just to test the inventory app and make sure the Oauth handshake is working.  
 
 2. Add the `Inventory` API to the `InventoryTest` Product.
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab4/8.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/8.png)
 
 2. Publish your API to Bluemix clicking on the `Publish` button
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab4/5.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/5.png)
 
 2. Click on your Bluemix instance.  Note each instance name is unique and will be different than the screenshot below.
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab4/6.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/6.png)
 
 3.  Select `Stage or Publish products` and then `Publish`
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab4/7.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/7.png)
 
 1. Move on to the next section to validate the API
 
@@ -267,38 +262,38 @@ We will validate the inventory application by using an Oauth test app we have ru
 
 1. Direct your browser to your developer portal URL.  Hopefully you created a bookmark for your portal page in lab #1. If you need a reminder of where your portal URL, you can get it from the settings screen from the 
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab1/22.png))
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab1/22.png))
 	
 1. Log into your portal with your developer credentials (not the admin user)
 
 1. Click the `Apps` link.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab7/PortalAppsList.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/PortalAppsList.png)
 
 1. Click the `Register new Application` link.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab7/RegisterNewApplication.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/RegisterNewApplication.png)
 
 1. Enter a title and description for the application as shown below and click the `Submit` button.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab7/SubmitNewApplication.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/SubmitNewApplication.png)
 
 1. We need to capture the Client Secret and Client ID in a text editor for later use by our web application. Select the `Show Client Secret` checkbox next to Client Secret at the top of the page and the `Show` checkbox next to Client ID.  Copy and paste both of these to a document for retrieval here in a later step
 
 1. Click the `API Products` link.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab7/PortalAPIProductsList.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/PortalAPIProductsList.png)
 
 1. Click the `API Products` link.
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab4/9.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/9.png)
 2. Select the `InventoryTest` Product
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab4/10.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/10.png)
 3. Click the `Subscribe` button for the`InventoryTest 1.0.0` Product
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab4/11.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/11.png)
 4. Select your app then click `Subscribe`
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab4/12.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/12.png)
 
 4. To test the API, we need to use a Web App to simulate the Oauth handshake.  To do this, direct your browser to the following URL:  `https://apim-services.mybluemix.net/oauth/ro_cred`
 5. Enter in the following values into the Form
@@ -322,6 +317,6 @@ We will validate the inventory application by using an Oauth test app we have ru
 
 Proceed to [Lab 5 - Advanced API Assembly](../Lab%205%20-%20Advanced%20API%20Assembly)
 
-[important]: https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/common/important.png "Important!"
-[info]: https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/common/info.png "Information"
-[troubleshooting]: https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/common/troubleshooting.png "Troubleshooting"
+[important]: https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/common/important.png "Important!"
+[info]: https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/common/info.png "Information"
+[troubleshooting]: https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/common/troubleshooting.png "Troubleshooting"
