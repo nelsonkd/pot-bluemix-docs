@@ -288,6 +288,7 @@ We will validate the inventory application by using an Oauth test app we have ru
 	> ![][troubleshooting]
 	> 
 	> The OAuth Tester client is an Angular-based web client. Logs for the tool can be found in your browser's developer tool set.
+	>
 	> You can use the Console, Network and Application Session storage features to trace the calls and logs.
 
 # Lab 4 - Conclusion
