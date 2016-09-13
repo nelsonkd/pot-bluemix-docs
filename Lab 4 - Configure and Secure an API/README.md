@@ -95,7 +95,32 @@ In this tutorial, you will secure the Inventory API to protect the resources exp
 
 1. Switch to the `Assemble` tab.
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/assembly.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/assemble-tab.png)
+
+1. Select the radio button next to `DataPower Gateway policies`.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/dp-gwy-policies.png)
+
+1. Click on the `Create assembly` button.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/create-assembly-btn.png)
+	
+1. In the list of policies on the left-hand scroll bar, find the policy named `gatewayscript`.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/select-gws-policy.png)
+
+1. Click and drag the `gatewayscript` policy to the assembly pipeline.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/gws-assembly.png)
+
+1. In the gatewayscript editor, type the following lines of code:
+
+	```javascript
+	var hm = require('header-metadata');
+	hm.response.set('Access-Control-Allow-Origin','*');
+	```
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/gws-set-cors.png)
 
 1. Click the `Save` icon in the top right corner of the editor to save your changes.
 
@@ -108,18 +133,20 @@ In this tutorial, you will secure the Inventory API to protect the resources exp
 1. Click the `inventory` link.
 
 	The inventory API will open in the API Editor, where we can make the necessary configuration changes. Over the next several steps you will set this API up to use the OAuth provider you just created.  
-	
+
+1. Notice the warning icon at the top-right of the screen. Click on the icon and read the warning description. Click on the `Show me` link to navigate to the portion of the configuration which is causing the warning.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/x-any-warning.png)
 
 1. Click on the `trashcan` icon for the `x-any` Definition to remove it. Confirm the removal by clicking the `OK` button in the prompt.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/delete-x-any.png)
 
 1. Navigate to the `Base Path` section.
 
 	Change the base path from `/api` to `/inventory`.
 
-1. Navigate to the `Host` section of the API. **Remove** the `$(catalog.host)` value.
-
-	As with the OAuth API Provider we just created, we want this value to remain empty.
-	
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/base-path.png)
 
 1. Navigate to the `Security Definitions` section.
 
@@ -134,20 +161,28 @@ In this tutorial, you will secure the Inventory API to protect the resources exp
 	Set it to have the following properties:
 	
 	> Name: `oauth`
-	
+	> 
 	> Description: `Resource Owner Password Grant Type`
-	
+	> 
 	> Flow: `Password`
-	
-	> Token URL: `https://api.us.apiconnect.ibmcloud.com/<yourorgname>-dev/sb/oauth20/token`
+	> 
+	> Token URL: `https://<BluemixHost>/<BluemixOrgName>-<BluemixSpaceName>/sb/oauth2/token`
+
+	**IMPORTANT**:
 
 	> ![][important]
 	> 
-	> The Token URL will be based upon the location of your Org and Catalog running on Bluemix public.  You can find your base URL by logging into the API Manager on Bluemix and go into your catalog (the default catalog created is `Sandbox`).  From there go into `Settings`.  If you scroll down a bit you will see what your `API Endpoint` is called, simply copy and paste the contents into the token URL
+	> The Token URL will be based upon the location of your Org and Space running on Bluemix public. You can find your base URL by logging into the API Manager on Bluemix. Log into Bluemix and launch the API Manager, then navigate into your catalog (the default catalog created is `Sandbox`). From there go into `Settings`. If you scroll down a bit you will see what your `API Endpoint` is called, simply copy and paste the contents into the token URL, then append `/oauth2/token`.
 
-![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/2.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/bmx-api-endpoint.png)
 
-1. Click the `+` icon in the **Scopes** section to create a new scope. Set the following properties.  Note the organization portion of the token URL will be different for each student. 
+	**TIP**:
+
+	> ![][info]
+	> 
+	> We are going to need the Token URL later. Go ahead and save the Token URL value to a text editor for easy access.
+
+1. Click the `+` icon in the **Scopes** section to create a new scope. Set the following properties. Note the organization portion of the token URL will be different for each student.
 
 	> Scope Name: `inventory`
 	
@@ -159,41 +194,13 @@ In this tutorial, you will secure the Inventory API to protect the resources exp
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/inv-security-addoauth.png)
 	
-	Now that the API is secured using our OAuth provider, we can define how the API should behave when called. In the next two sections, we will configure the `inventory` API to call our inventory application which was published at the end of Lab 3.
-
-## 4.4 - Adding API Properties
-
-Before we add and configure the `inventory` API processing policies, we need to set up a couple of API properties. These are used to hold parameters needed by the API, whose values vary based on which Catalog the API is running in.
-
-For example, we will configure the `inventory` API to invoke a backend service. We want to be able to call different instances of that service based on which Catalog the API is deployed to.
-
-1. Navigate to the `Properties` section and click the `+ Add` icon to create a new property. Give it the following attributes:
-
-	> Name: `app-server`
-	
-	> Description: `Catalog-specific app server URL`
-	
-	> Default Value: `http://localhost/`
-
-1. Add additional catalog-specific values by clicking the `Add value` link. Specify the following catalog name and value.  This value will be the `API Target URL` you captured from the previous lab when you published your Inventory application to bluemix.  This will be unique for each user.
-
-	> Catalog: `Sandbox`
-	
-	> Value: your specific value e.g. `https://apiconnect-abcedf84-ce2f-aaaa-8ab1-6efd9f1fd6ee.someorg-dev.apic.mybluemix.net`
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/4.png)
-
-	
-	>![][important]
-	> 
-	> The Catalog and Value fields are strict. They are case-sensitive and must be typed exactly as shown.  You will note that the catalog drop down list will have a default entry there for `sb`. It is important that you type in the `Sandbox` name in the Catalog as indicated above, otherwise you will encounter issues.
-
-
 1. Save your changes.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/save-icon.png)
-
-## 4.5 - Defining API Processing Behavior
+	
+	Now that the API is secured using our OAuth provider, we can define how the API should behave when called. In the next two sections, we will configure the `inventory` API to call our inventory application which was published at the end of Lab 3.
+	
+## 4.4 - Defining API Processing Behavior
 An API Assembly provides collection of policies which are enforced and executed on the API Gateway. Policies include actions like modifying the logging behavior and altering the message content or headers. Additionally, if the out of the box policies do not meet your specific needs, you may opt to create your own policy and have it available for API designers through the API Connect UI.
 
 1. Switch to the `Assemble` tab. A simple assembly has been created for you.  
@@ -218,99 +225,71 @@ An API Assembly provides collection of policies which are enforced and executed 
 
 1. Click on the `X` to close the activity-log editor menu.
 
-1. Click on the `invoke` policy to bring up the editor.
+1. Click on the `invoke` policy action to open it's editor.
 
-1. Replace the default `Invoke URL` path.
+1. Locate the `TLS Profile` section and delete the contents. Ensure that this section is blank:
 
-	Update the URL to be: `$(app-server)$(request.path)`
-	
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/invoke_url.png)
-	
-	> ![][info]
-	> 
-	> The `$(request.path)` variable will automatically remove the organization and catalog components of the full API Connect request path. Additionally, the leading slash `/` is already included in the variable value.
-
-1. Click on the `X` to close the invoke policy editor menu.
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/remove-tls-profile.png)
 
 1. Save your changes.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/save-icon.png)
 
-1. Create a new Product called `InventoryTest`. We are going to use this just to test the inventory app and make sure the Oauth handshake is working.  
+# Lab 4 - Validation
 
-2. Add the `Inventory` API to the `InventoryTest` Product.
+We will validate the inventory application by using an Oauth test app we have running in Bluemix.
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/8.png)
-
-2. Publish your API to Bluemix clicking on the `Publish` button
+1. Publish your API to Bluemix clicking on the `Publish` button.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/5.png)
 
-2. Click on your Bluemix instance.  Note each instance name is unique and will be different than the screenshot below.
+1. Click on your Bluemix instance. **Note:** Each instance name is unique and will be different than the screenshot below.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/6.png)
 
-3.  Select `Stage or Publish products` and then `Publish`
+1.  Select `Stage or Publish products` and then `Publish`.
+
+	Make sure that the option to publish the Application is **NOT** selected.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/7.png)
 
-1. Move on to the next section to validate the API
+1. Open a new browser tab and navigate to your Bluemix environment and launch the API Manager.
 
-# Lab 4 - Validation
+1. Click on the Sandbox catalog and navigate to the `Settings` tab.
 
-We will validate the inventory application by using an Oauth test app we have running in bluemix
-
-1. Direct your browser to your developer portal URL.  Hopefully you created a bookmark for your portal page in lab #1. If you need a reminder of where your portal URL, you can get it from the settings screen from the 
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab1/22.png))
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/catalog-settings.png)
 	
-1. Log into your portal with your developer credentials (not the admin user)
+1. Click on the `Show` button next to the Client ID and Client Secret fields in the **Automatic Subscription** section, we're going to need these values in the next few steps.
 
-1. Click the `Apps` link.
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/show-client-creds.png)
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/PortalAppsList.png)
+1. To test the API, we need to use a Web App to simulate the Oauth handshake. To do this, direct your browser to the following URL:
 
-1. Click the `Register new Application` link.
+	[https://thinkibm-services.mybluemix.net/oauthtester](https://thinkibm-services.mybluemix.net/oauthtester)
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/RegisterNewApplication.png)
-
-1. Enter a title and description for the application as shown below and click the `Submit` button.
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/SubmitNewApplication.png)
-
-1. We need to capture the Client Secret and Client ID in a text editor for later use by our web application. Select the `Show Client Secret` checkbox next to Client Secret at the top of the page and the `Show` checkbox next to Client ID.  Copy and paste both of these to a document for retrieval here in a later step
-
-1. Click the `API Products` link.
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/PortalAPIProductsList.png)
-
-1. Click the `API Products` link.
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/9.png)
-2. Select the `InventoryTest` Product
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/10.png)
-3. Click the `Subscribe` button for the`InventoryTest 1.0.0` Product
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/11.png)
-4. Select your app then click `Subscribe`
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/12.png)
-
-4. To test the API, we need to use a Web App to simulate the Oauth handshake.  To do this, direct your browser to the following URL:  `https://apim-services.mybluemix.net/oauth/ro_cred`
-5. Enter in the following values into the Form
-	> Client Type: `Confidential`
+1. Enter in the following values into the Form
 	
-	> Token URL: `https://api.us.apiconnect.ibmcloud.com/enteryourtenanthere-dev/sb/oauth2/token`  Replace your tenant name over the `enteryourtenanthere` section of the URL
-	
-	> Resource Owner ID:  `this can be any value`
-	
-	> Resource Owner Password: `this can be any value`
+	> Token URL: `< your token url >`
 	> 
-	> Client Id: `Client ID for your App`
+	> Client Id: `< your auto-subscribe client id >`
 	> 
-	> Client Secret: `Client Secret for your App`
+	> Client Secret: `< your auto-subscribe client secret >`
 	> 
-	> Scope: `/inventory`
-6. Go ahead blah
+	> Scope: `inventory`
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/oauth-tester-form.png)
+
+1. Click the `Submit` button.
+
+1. The OAuth Tester will attempt to call your Token URL and obtain an OAuth token. Once it receives a token, the tool will also call the `/inventory/items` API with a query filter to return back the first two data sets. If everything worked properly, you will see the token and the API response, similar to this:
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/oauth-test-success.png)
+
+	> ![][troubleshooting]
+	> 
+	> The OAuth Tester client is an Angular-based web client. Logs for the tool can be found in your browser's developer tool set.
+	> You can use the Console, Network and 
+
 # Lab 4 - Conclusion
 
 **Congratulations!** You have successfully configured and secured the inventory API. You will consume this API in a later step.
