@@ -263,7 +263,7 @@ We will validate the inventory application by using an Oauth test app we have ru
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab4/show-client-creds.png)
 
-1. To test the API, we need to use a Web App to simulate the Oauth handshake. To do this, direct your browser to the following URL:
+1. To test the API, we need to use a Web App to simulate the Oauth handshake. To do this, open a new browser tab and navigate to the following URL:
 
 	[https://thinkibm-services.mybluemix.net/oauthtester](https://thinkibm-services.mybluemix.net/oauthtester)
 
@@ -271,9 +271,9 @@ We will validate the inventory application by using an Oauth test app we have ru
 	
 	> Token URL: `< your token url >`
 	> 
-	> Client Id: `< your auto-subscribe client id >`
+	> Client Id: `< auto-subscribed client id >`
 	> 
-	> Client Secret: `< your auto-subscribe client secret >`
+	> Client Secret: `< auto-subscribed client secret >`
 	> 
 	> Scope: `inventory`
 
@@ -288,7 +288,7 @@ We will validate the inventory application by using an Oauth test app we have ru
 	> ![][troubleshooting]
 	> 
 	> The OAuth Tester client is an Angular-based web client. Logs for the tool can be found in your browser's developer tool set.
-	> You can use the Console, Network and 
+	> You can use the Console, Network and Application Session storage features to trace the calls and logs.
 
 # Lab 4 - Conclusion
 
