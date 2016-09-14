@@ -74,13 +74,14 @@ Now that we have explained the contents of a custom theme file, it is time to lo
 
 	Click the `Enable and set default link` link.
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/EnableandSetDefaultThinkIBMTheme.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/set-default-theme.png)
 	
 1. Click the `Home` icon in the top-left corner of the screen to return to the home page.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/CloseThemeSettings.png)
 
 ### 7.1.2 - Customize the Welcome Banner
+
 Now we want to change the default Welcome banner to use our custom Welcome banner image. 
 
 1. Navigate to the blocks content page by selecting `Content > Blocks` from the admin menu.
