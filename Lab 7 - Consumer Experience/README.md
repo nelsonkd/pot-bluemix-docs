@@ -233,19 +233,17 @@ Now that you have browsed the API Portal and registered / tested the API's that 
 
 	> ![][info]
 	> 
-	> The consumer app will contact our OAuth Token URL and handle the token exchange using standard OAuth proceedures. If you're interested in seeing the token, you can switch over to the terminal from where you launched the consumer app and view the logs. Look for a line similar to:
+	> The consumer app will contact our OAuth Token URL and handle the token exchange using standard OAuth proceedures. If you're interested in seeing the token, you can open your browser's developer tools and view the Console logs and Network trace
+	>
+	> ![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/consumer-app-console.png)
 
-	```text
-	Using OAuth Token: AAEkZGEwZDgxNDMtMzIxMS00ZDgyLWE3MGYtMTJmY2UyYjk1YmUyxzqSMdEr7wM8XU_edO3dmxGDmC1ZGaqUC9Ibh-rOVNlflzd6blfDq4CGaNsD1qn-KESw6Q6RN_TPA0IfMdIn1nHY4ZpGRYa5N0f7mgY2Jg4Tfhm0IlhCUq5HRvoo7c4SIX7SAS3rL998_BvMVBST_g
-	```
+1. Once you are logged in, the consumer application will redirect you to the item inventory page. The data displayed on the page is being powered by our `inventory` API! The consumer application is calling to our API, which is then being sent to our LoopBack application which handles the connection to the Cloudant data source where the inventory item data is persisted.
 
-1. Once you are logged in, the consumer application will redirect you to the item inventory page. The data displayed on the page is being powered by our `inventory` API! The consumer application is calling to our API, which is then being sent to our LoopBack application which handles the connection to the MySQL data source where the inventory data is persisted.
+1. Click around the pages. Use the review form to leave new reviews for items. Recall how the item reviews are separate data models stored in a different data source, yet are related to the items through our LoopBack application.
 
-1. Click around the pages. Use the review form to leave new reviews for items. Recall how the item reviews are separate data models stored in MongoDB, yet are related to the items through our LoopBack application.
-
-	Notice how the product rating is updated automatically as new reviews are posted. This happens because of the custom code you added to the LoopBack application in Lab 3.
+	Notice how the product rating is updated automatically as new reviews are posted. This happens because of the custom code you added to the LoopBack application in **Lab 3**.
 	
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/sample-reviews.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/customer-reviews.png)
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/updated-rating.png)
 
