@@ -60,29 +60,23 @@ Now that we have explained the contents of a custom theme file, it is time to lo
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/InstallNewPortalTheme.png)
 
-1. Click the `Browse` button and navigate to the `/home/student/lab_files/lab7/` directory and select the `think_ibm_connect_theme.zip file`, then click the `Open` button.
+1. In the `Install from a URL` field, enter the following URL then click the `Install` button:
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/open-theme-zip.png)
+	[https://thinkibm-services.mybluemix.net/portal/theme.zip](https://thinkibm-services.mybluemix.net/portal/theme.zip)
 
-1. Click the `Install` button to install the **ThinkIBM** custom theme.   
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/InstallPortalThemeZipFile.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/install-theme.png)
     
-1. The installation of the custom theme completes. Click the `Enable newly added themes` link.
+1. Once the installation of the custom theme completes, click the `Enable newly added themes` link.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/enable-theme.png)
    
-1. Scroll down the list of themes to find the `thinkibm_connect 7.43` theme. Click the `Enable and set default link` link.
+1. Scroll down the list of themes to find the `thinkibm_connect 7.50` theme.
+
+	Click the `Enable and set default link` link.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/EnableandSetDefaultThinkIBMTheme.png)
-       
-1. We need to go into settings for the theme and save the configuration. Click the `Settings` link under the theme.
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/ThinkIBMSettings.png)
-   
-1. Scroll down to the bottom of the settings page to find the **Toggle Display** section. Expand the **Toggle click the `Save Configuration` button at the bottom of the screen:
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/ThinkIBMSaveConfiguration.png)
 	
-1. Click the `Home` icon to return to the home page.
+1. Click the `Home` icon in the top-left corner of the screen to return to the home page.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/CloseThemeSettings.png)
 
