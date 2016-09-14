@@ -223,11 +223,13 @@ Now that you have browsed the API Portal and registered / tested the API's that 
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/consumer-app-config-host.png)
 
-1. The home page is a simple landing page which does not invoke any of the API's. Recall that in Lab 4 you secured the `inventory` API by requiring OAuth. If you attempt to view the Item Inventory before logging in, you will be challenged for a username and password. Either click on the `Browse Item Inventory` button, or the `Log In` link to open the login prompt.
+1. Click the `Submit` button to complete the application configuration. The test application saves your settings in browser session variables.
+
+1. The home page is a simple landing page which does not invoke any of the API's. Recall that in **Lab 4** you secured the `inventory` API by requiring an OAuth token. If you attempt to view the Item Inventory before logging in, you will be challenged for a username and password. Either click on the `Browse Item Inventory` button, or the `Log In` link to open the login prompt.
 
 1. Enter any Username and Password then click the `Log In` button. Our sample authentication service is a dummy repository that will accept any credentials provided.
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/consumer-login.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/enter-oauth-creds.png)
 
 	> ![][info]
 	> 
