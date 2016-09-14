@@ -90,27 +90,29 @@ Now we want to change the default Welcome banner to use our custom Welcome banne
 
 1. Underneath operations select `Edit` to the right of the Welcome banner block.
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/EditWelcomeBannerBlock.png)
-	   
-1. Scroll down the banner edit page, click the `Browse` button underneath **Image** to launch the file explorer.
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/edit-welcome-banner.png)
 
-1. Navigate to the `/home/student/lab_files/lab7/think_ibm_connect_theme` directory and select the `thinkibm_welcome_banner.png` file. Then, click the `Open` button.
+1. Before you can set the image, you will need to download it to your local computer's disc drive. You can download the file from this URL:
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/open-welcome-banner-img.png)
+	[https://thinkibm-services.mybluemix.net/portal/welcome-banner.png](https://thinkibm-services.mybluemix.net/portal/welcome-banner.png)
+
+1. Scroll down the banner edit page, locate the *Image* section and click the `Chose file` button to launch the file explorer.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/choose-banner-file.png)
+
+1. Find the `welcome-banner.png` file. Then, click the `Open` button.
 
 1. Click the `Upload` button to upload the new welcome banner image.
 
 1. Scroll to the bottom of the page and click the `Save` button.
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/SaveWelcomeBanner.png)
+1. Click on the `x` button to close the content block settings.
 
-1. Close the content block settings.
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/CloseContentBlockSettings.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/close-content-block.png)
 
 ### 7.1.3 - Change the Region Settings for the Content Blocks
 
-The region settings for some of the content blocks have been reset, so we will set these back.
+The region settings for some of the content blocks were reset when we loaded the new theme, so we will set these back.
 
 1. Navigate to the region settings for block content page by selecting `Structure > Blocks` from the admin menu.
 
@@ -130,9 +132,9 @@ The region settings for some of the content blocks have been reset, so we will s
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/SaveBlockRegions.png)
 
-1. Click close on the block region settings.
+1. Scroll back to the top and click the `x` button to close the block region settings.
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/CloseContentBlockSettings.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/close-region-block.png)
 
 1. You are finished with customizing the developer portal. There is a lot more that can be customized than what we have time for in this lab. Log out of the developer portal.
 
@@ -140,48 +142,40 @@ The region settings for some of the content blocks have been reset, so we will s
 
 ## 7.2 - Register an Application as a Developer 
 
-In this section, you will log into the portal as a user in the application developer role, then register an application that will be used to consume APIs.  If you have not created your ThinkIBM application in an earlier lab, you can create it here.  If you already have created your ThinkIBM application, go ahead and skip to section 7.3.
+In this section, you will log into the portal as a user in the application developer role, then register an application that will be used to consume APIs. If you have not created your developer account from Lab 1, you will need to use the `Create an account` link to do so now.
 
-1. Login into the developer portal as an application developer using your developer credentials
+1. Login into the developer portal as an application developer using your developer credentials.
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/PortalDeveloperLogin.png)
+1. Click the `Apps` link, then click on the `Register new Application` link.
 
-1. Click the `Apps` link.
+1. Enter a title and description for the application and click the `Submit` button.
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/PortalAppsList.png)
+	> Title: `ThinkIBM Consumer`
+	>
+	> Description: `Test Application for ThinkIBM APIs`
+	>
+	> OAuth Redirect URI: `< leave blank >`
 
-1. Click the `Register new Application` link.
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/RegisterNewApplication.png)
-
-1. Enter a title and description for the application as shown below and click the `Submit` button.
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/SubmitNewApplication.png)
-
-1. We need to capture the Client Secret and Client ID in a text editor for later use by our web application. Select the `Show Client Secret` checkbox next to Client Secret at the top of the page and the `Show` checkbox next to Client ID.
+1. We need to capture the Client Secret and Client ID in a text editor for later use by our test application. Select the `Show Client Secret` checkbox next to Client Secret at the top of the page and the `Show` checkbox next to Client ID.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/ShowClientSecretandID.png)
 
-1. Launch the `Notes` application as shown below. 
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/SelectNotesApp.png)
-	
-1. Navigate back to the browser and copy/paste both the Client ID and Client Secret into the Notes application window as shown below. Add a notation above each item so you know which value is the Client ID and which is the Client Secret. Do not exit the Notes application as we will need these values later in this lab.
+1. Open your favorite text editor and copy/paste both the Client ID and Client Secret to your editor. Add a notation above each item so you know which value is the Client ID and which is the Client Secret.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/SaveClientIDandSecret.png)
 
 ## 7.3 - Subscribe to a Plan for the ThinkIBM APIs 
-In this section, we will subscribe to a plan for the ThinkIBM APIs using the Think IBM Web Consumer application.
+In this section, we will subscribe to a plan for the ThinkIBM APIs using the ThinkIBM Consumer application.
 
 1. Click the `API Products` link.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/PortalAPIProductsList.png)
 
-1. Click the `think (v1.0.0)` API product link.                                                          
+1. Click the `think (v1.0.0)` API product link.
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/SelectThinkIBMProduct.png)
+1. You will be directed to the Product page which lists the available plans for subscription.
 
-1. Click the `Plans` link on the left-hand navigation menu and then click the `Subscribe` button under the **Silver** plan as shown below.
+	Click on the `Subscribe` button under the `Silver` plan.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/SubscribetoThinkSilverPlan.png)
 	
@@ -191,37 +185,15 @@ In this section, we will subscribe to a plan for the ThinkIBM APIs using the Thi
 
 1. Select the `Think IBM Web Consumer` toggle and click the `Subscribe` button.
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/SubscribeThinkIBMWebApplicationtoPlan.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/subscribe-to-plan.png)
 
 1. The `Think IBM Web Consumer` Web application is now subscribed to the Silver plan for the `think` API product.
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/ThinkIBMWebApplicationSubscribed.png)
-
-1. Let's validate that we subscribed to the Silver plan for the `think v1.0.0` API product. Click the `Apps` link.
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/PortalAppsList.png)
-
-1. Click the `Think IBM Web Consumer` application link.
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/SelectThinkIBMWebConsumerApp.png)
-
-1. The `Think IBM Web Consumer` application is subscribed to the Silver plan for the `think` product as shown below.
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/ValidateSubscribedtoThinkSilverPlan.png)
 
 ## 7.4 - Test `think` Product APIs from the Developer Portal
 
 In this section, we will use the developer portal to test one of the think product APIs. This is useful for application developers to **_try out_** the APIs before their application is fully developed or to simply see the expected response based on inputs they provide the API. Later in this lab, you will run an actual application that is already developed and uses these same APIs. We will test the `logistics` API from the developer portal.
 
-1. Click the `API Products` link.
-
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/PortalAPIProductsList.png)
-
-1. Click the `think (v1.0.0)` API product link.
-
-  ![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/SelectThinkIBMProduct.png)
-
-1. Click the `logistics 1.0.0` link on the left-hand navigation menu and then expand the `GET /shipping` path by clicking on the twisty next to the path.
+1. Click the `logistics` link on the left-hand navigation menu and then expand the `GET /shipping` path by clicking on the twisty next to the path.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/PortalExpandShipping.png)
 
@@ -237,17 +209,19 @@ In this section, we will use the developer portal to test one of the think produ
 
 Now that you have browsed the API Portal and registered / tested the API's that **ThinkIBM** is providing, it's time to test them out from a real application. We have provided a sample consumer application which will be used to interract with the **ThinkIBM** API's.
 
-1. The ThinkIBM Consumer Application is automatically set up to launch when you open the Chrome browser:
+1. Open a new browser tab and navigate to:
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/launch-chrome.png)
+	[https://thinkibm-consumer.mybluemix.net](https://thinkibm-consumer.mybluemix.net)
 
-1. In order to set up the consumer app to use our registered client credentials, a setup screen will be displayed asking for some application configuration parameters.
+1. In order to set up the consumer app to use your registered client credentials, a setup screen will be displayed asking for some application configuration parameters.
 
-1. Using the Client ID and Client Secret values you saved earlier in the Notes application, copy/paste them into the `Client ID` and `Client Secret` fields as shown below:
+1. Using the Client ID and Client Secret values you saved earlier in your text editor, copy/paste them into the `Client ID` and `Client Secret` fields as shown below:
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/config-consumer-app.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/consumer-app-config-creds.png)
 
-1. Leave the `API Connect Host`, `API Connect Org` and `API Connect Catalog` fields as-is. Click the `Submit` button.
+1. You will also need to enter the API Connect Host, Organization and Catalog values. The easiest way to find these is to return to the API Manager on Bluemix and browse the Catalog Endpoint Settings as shown below:
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab7/consumer-app-config-host.png)
 
 1. The home page is a simple landing page which does not invoke any of the API's. Recall that in Lab 4 you secured the `inventory` API by requiring OAuth. If you attempt to view the Item Inventory before logging in, you will be challenged for a username and password. Either click on the `Browse Item Inventory` button, or the `Log In` link to open the login prompt.
 
