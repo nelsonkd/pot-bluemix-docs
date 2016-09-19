@@ -30,6 +30,8 @@ In this tutorial, you will expand the product offerings for **ThinkIBM**. In add
 	apic edit
 	```
 
+1. Sign in with your registered Bluemix account.
+
 1. Otherwise, click the `All APIs` link to return to the main Designer screen.
 
 ### 5.1.1 - Create the API Definition
@@ -38,7 +40,7 @@ In this tutorial, you will expand the product offerings for **ThinkIBM**. In add
 
 	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/fin_add_new.png)
 
-1. Fill in the form values for the API, then click the `Next` button to continue.
+1. Fill in the form values for the API, then click the `Add` button to continue.
 
 	> Title: `financing`
 	
@@ -49,8 +51,6 @@ In this tutorial, you will expand the product offerings for **ThinkIBM**. In add
 	> Add to an existing product: `inventory 1.0.0`
 
 	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/fin_api_info.png)
-
-1. Keep the selected default to `Don't add to a product` and click the `Add` button.
 
 1. API Connect will generate a new swagger definition file for the `financing` API and automatically load the API editor screen. Notice that the API does not contain any paths or data definitions. We will be adding these in the following steps.
 
@@ -156,6 +156,20 @@ In this tutorial, you will expand the product offerings for **ThinkIBM**. In add
 
 	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/fin_resp_schema.png)
 
+1. Next, click on `Services` from API Designer menu to load a service as policy that will be used in the assembly view later on.
+
+1. Click the `+` icon in the **Services** section to import web service from WSDL.
+
+	![](https://dl.dropboxusercontent.com/u/9449406/fin_service.png)
+
+1. Click the `Load from URL` icon and enter the WSDL URL **https://thinkibm-services.mybluemix.net/financing/calculate?wsdl** and then click `Next`.
+
+	![](https://dl.dropboxusercontent.com/u/9449406/fin_service_wsdl.png)
+
+1. Click the `Show operations` to see the available operations in the WSDL end point. Select `financingService` then click `Done`.
+
+	![](https://dl.dropboxusercontent.com/u/9449406/fin_service_wsdl_operation.png)
+
 1. Save the API definition.
 
 	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/save-icon.png)
@@ -172,27 +186,17 @@ In this tutorial, you will expand the product offerings for **ThinkIBM**. In add
 
 	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/fin_gateway_policies.png)
 
-1. In the policy list, click and drag the `activity-log` policy to the front of the processing pipeline.
+1. In the processing pipeline, mouse over the `invoke` policy and click the trash icon to delete it.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/fin_assembly_pipeline_1.png)
+	![](https://dl.dropboxusercontent.com/u/9449406/fin_assembly_delete_invoke.png)
 
-1. Click on the `activity-log` action resting on the pipeline to open the configuration options for the policy.
+1. Scroll down to the bottom of the policy menu, drag and drop the `financing` web service operations to processing pipeline.
 
-1. Change the selected item for the Content field from `activity` to `payload`.
+	![](https://dl.dropboxusercontent.com/u/9449406/fin_assembly_drag_n_drop_financing.png)
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/fin_activity_log.png)
+1. Now we are going to modify the input and output `map` policy for mapping our REST API into SOAP.
 
-1. Click the `X` to close the policy editor window to return to the assembly processing pipeline.
-
-1. Now we are going to add the remaining policies required for mapping our REST API into SOAP.
-
-1. Between the `activity-log` and `invoke` policies, add a `map` policy.
-
-1. After the `invoke` policy, add a `gatewayscript` policy and then a `xml-to-json` policy.
-
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/fin_assembly_pipeline_2_temp.png)
-
-1. In order to consume a SOAP-based service from our REST-based API, we need to map the query parameter inputs that we defined as part of the `GET /calculate` operation to a SOAP payload. To do so, click on the `map` policy on our pipeline to open the map editor.
+1. In order to consume a SOAP-based service from our REST-based API, we need to map the query parameter inputs that we defined as part of the `GET /calculate` operation to a SOAP payload. To do so, click on the `financing: input` map policy on our pipeline to open the map editor.
 
 1. Click on the `+` icon to make the editor window fill the screen.
 
@@ -234,121 +238,59 @@ In this tutorial, you will expand the product offerings for **ThinkIBM**. In add
 	    
 	> Definition: `float`
 	
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/fin_map_inputs.png)
+	![](https://dl.dropboxusercontent.com/u/9449406/fin_assembly_map_input.png)
 
 1. Click on the `Done` button to return to the map editor.
-
-1. Next, in the **Output** column, click on the `pencil` icon to add an output definition.
-
-1. Click on `+ output`.
-
-1. Set the `Content type` to `application/xml`.
-
-1. For the `Definition` field, click on the drop down menu and scroll to the bottom to select `Inline schema`.
-
-1. In the interest of time, and to avoid typing errors, a sample schema file has been provided for you.
-
-	Select the `Atom` application from the system task bar if it was left open, or open it using the favorites menu.
-
-1. Make sure you're in the `Atom` instance that is opened to browse the `lab-files` folder. If you need to open the `lab-files` folder, use the file menu and select `File -> Open Folder...` and choose `student -> lab-files`.
-	
-1. Use the file tree menu to open the `lab5/schema_financingSoap.yaml` file:
-
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/open-schema-financing-soap.png)
-
-1. Copy the contents of the `schema_financingSoap.yaml` file to the system clipboard.
-
-	```yaml
-	$schema: 'http://json-schema.org/draft-04/schema#'
-	id: 'http://services.think.ibm'
-	type: object
-	properties:
-	  Envelope:
-	    type: object
-	    xml:
-	      prefix: soapenv
-	      namespace: 'http://schemas.xmlsoap.org/soap/envelope/'
-	    properties:
-	      Body:
-	        type: object
-	        properties:
-	          financingRequest:
-	            type: object
-	            xml:
-	              prefix: ser
-	              namespace: 'http://services.think.ibm'
-	            properties:
-	              amount:
-	                id: 'http://services.think.ibm/Envelope/Body/financingRequest/amount'
-	                type: number
-	                name: amount
-	              duration:
-	                id: 'http://services.think.ibm/envelope/body/financingRequest/duration'
-	                type: integer
-	                name: duration
-	              rate:
-	                id: 'http://services.think.ibm/envelope/body/financingRequest/rate'
-	                type: number
-	                name: rate
-	            additionalProperties: false
-	            required:
-	              - amount
-	              - duration
-	              - rate
-	            name: financingRequest
-	        additionalProperties: false
-	        required:
-	          - financingRequest
-	        name: Body
-	    additionalProperties: false
-	    required:
-	      - Body
-	    name: Envelope
-	additionalProperties: false
-	required:
-	  - Envelope
-	title: output
-	```
-
-1. Switch back to the `Firefox` browser and paste (`control+v`) the SOAP schema definition into the schema editor window, then click the `Done` button.
-
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/fin_soap_schema.png)
-
-1. Click the `Done` button in the output editor window to return to the map editor.
 
 1. For each of the `Input` query parameters, map them to their respective SOAP `Output` elements.
 
 	To map from an input field to an output field, click the circle next to the *source* element once, then click the circle next to the *target* element. A line will be drawn between the two, indicating a mapping from the source to the target.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/fin_map_to_soap.png)
+	![](https://dl.dropboxusercontent.com/u/9449406/fin_assembly_map_input_to_output.png)
 
 1. Click the `X` button in the map editor to return to the policy pipeline.
 
 1. Click the `invoke` policy to open its editor.
 
-1. Set the `URL` to: `https://services.think.ibm:1443/financing/calculate`.
+1. The SOAP service `URL` has already been set for you during the service import when we create the API.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/fin_invoke_url.png)
-
-1. Scroll down and set the `HTTP Method` to `POST`.
-
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/fin_invoke_method.png)
+	![](https://dl.dropboxusercontent.com/u/9449406/fin_assembly_invoke.png)
 
 1. Click the `X` button to return to the policy pipeline.
 
-1. Click on the `gatewayscript` policy to open the editor. Add the following line:
 
-	```javascript
-	session.name('_apimgmt').setVar('content-type', 'application/xml');
-	```
+
+1. After we invoke the SOAP service, we need to map the SOAP response into a custom object `paymentAmount`, which is created previously in API definition, as API response.  To do so, click on the `financing: output` map policy on our pipeline to open the map editor.
+
+1. Click on the `+ output` icon to create a new output object.
+
+1. Fill in the values for the output object:
+
+	> Context variable: `message.body`
 	
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/gws-workaround.png)
+	> Name: `paymentAmount`
+	
+	> Content type: `none`
+	
+	> Definition: `#/definitions/paymentAmount`
+	
+	> ---
+		
+	![](https://dl.dropboxusercontent.com/u/9449406/fin_assembly_map_output.png)
+
+1. 
+
+1. Click on the `Done` button to return to the map editor.
+
+1. To map SOAP response to custom object `paymentAmount`, click the circle next to the *source* element once, then click the circle next to the *target* element. A line will be drawn between the two, indicating a mapping from the source to the target.
+
+	![](https://dl.dropboxusercontent.com/u/9449406/fin_assembly_map_output_link.png)
+
+1. Click the `X` button in the map editor to return to the policy pipeline.
 
 1. You are now finished with the assembly for the `financing` API. The assembly takes the following actions:
 
-	+ Logs requests.
 	+ Maps the REST query parameters into a SOAP body.
-	+ Sets the SOAPAction header.
 	+ Invokes the SOAP service.
 	+ Transforms the SOAP service's response into JSON.
 
@@ -370,17 +312,15 @@ Rather than require you to build the entire API from scratch again, you will see
 
 	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/import-logistics-api.png)
 
-1. Click on the `Select File` button to open the file browser. Navigate to the `~/home/student/lab-files/lab5` folder and choose the `api_logistics.yaml` file.
+1. Click on the `import from URL` link, enter the `logistics` API definition template URL **https://thinkibm-services.mybluemix.net/logistics/logistics_1.0.0.yaml** and click `Import` button.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/open-swager-file.png)
+	![](https://dl.dropboxusercontent.com/u/9449406/logistics_api_import_from_url.png)
 
-1. Click the `import` button to import the `logistics` API definition template.
+	![](https://dl.dropboxusercontent.com/u/9449406/logistics_api_import.png)
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/import-logistics-api-2.png)
+1. Click the `refresh` button on your browser then you will see `logistics 1.0.0` API showing in API Designer's API list.
 
-1. Click on the `logistics 1.0.0` API from the list to browse the API definition.
-
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/open-logistics-api.png)
+	![](https://dl.dropboxusercontent.com/u/9449406/logistics_api_after_import_refresh_on_browser.png)
 
 ### 5.2.2 - Create the Logistics API Assembly
 
@@ -396,9 +336,9 @@ Rather than require you to build the entire API from scratch again, you will see
 
 1. Click `search operations...` to bring up the drop-down list of available operations.
 
-1. Select the `get /shipping` operation.
+1. Select the `shipping.calc` operation.
 
-1. Click the `+ Case` button to add a second case for the `get /stores` operation.
+1. Click the `+ Case` button to add a second case for the `get.stores` operation.
 
 1. Click the `X` to close the operation switch configuration editor.
 
@@ -466,7 +406,36 @@ This operation will end up invoking two separate back-end services to acquire sh
 
 	Use the `Atom` editor to open the `/home/student/lab-files/lab5/schema_shippingSvc.yaml` file.
 	
-	Copy the contents to your clipboard and paste them into the schema editor window.
+	Copy the following predefined schema into the schema editor window.
+	
+	`$schema: 'http://json-schema.org/draft-04/schema#'`  
+	`id: 'http://jsonschema.net'`  
+	`type: object`  
+	`properties:`  
+	`  company:`  
+	`    id: 'http://jsonschema.net/company'`  
+	`    type: string`  
+	`    name: company`  
+	`  rates:`  
+	`    id: 'http://jsonschema.net/rates'`  
+	`    type: object`  
+	`    properties:`  
+	`      next_day:`  
+	`        id: 'http://jsonschema.net/rates/next_day'`  
+	`        type: string`  
+	`        name: next_day`  
+	`      two_day:`  
+	`        id: 'http://jsonschema.net/rates/two_day'`  
+	`        type: string`  
+	`        name: two_day`  
+	`      ground:`  
+	`        id: 'http://jsonschema.net/rates/ground'`  
+	`        type: string`  
+	`        name: ground`  
+	`    name: rates`  
+	`required:`  
+	`  - company`  
+	`  - rates`  
 	  
 1. Click `Done` to close the Schema window  
 	
@@ -512,17 +481,21 @@ This operation will end up invoking two separate back-end services to acquire sh
 
 	Your assembly policy for the `shipping.calc` operation is now complete.
 	  
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/logistics-shipping-calc-policy.png)
+	![](https://dl.dropboxusercontent.com/u/9449406/logistics_assembly_shipping_calc_complete.png)
 
+	> ![][info]
+	> 
+	> The `exclamation mark` badge in `invoke_xyz` can be ignored.
+	
 1. Save your changes.
 
 	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/save-icon.png)
 
-#### 5.2.2.2 - Configure the `get /stores` Case:
+#### 5.2.2.2 - Configure the `get.stores` Case:
 
 This operation will call out to the Google Geocode API to obtain location information about the provided zip code, then utilize a simple gatewayscript to modify the response and provide a formatted Google Maps link.
 
-1. Add an invoke policy to the `get /stores` case with the following properties:
+1. Add an invoke policy to the `get.stores` case with the following properties:
 
 	> Title: `invoke_google_geolocate`
 	  
@@ -538,7 +511,24 @@ This operation will call out to the Google Geocode API to obtain location inform
   
 	> Title: `gws-format-maps-link`
 	  
-	> Paste the contents of `/home/student/lab-files/lab5/gws_formatMapsLink.js` into the code section of the policy.
+	> Paste the following predefined script into the code section of the policy.
+	
+	`// Require API Connect Functions`  
+	`var apic = require('local:///isp/policy/apim.custom.js');`
+
+	`// Save the Google Geocode response body to variable`  
+	`var mapsApiRsp = apic.getvariable('google_geocode_response.body');`
+
+	`// Get location attributes from geocode response body`  
+	`var location = mapsApiRsp.results[0].geometry.location;`
+
+	`// Set up the response data object, concat the latitude and longitude`  
+	`var rspObj = {`  
+	`  "google_maps_link": "https://www.google.com/maps?q=" + location.lat + "," + location.lng`  
+	`};`
+
+	`// Save the output`  	
+	`apic.setvariable('message.body', rspObj);`
 	
 	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/logistics-gws.png)
 	
@@ -550,7 +540,11 @@ This operation will call out to the Google Geocode API to obtain location inform
 
 1. Your assembly for the `logistics` API will now include two separate operation policies:
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab5/logistics_assembly-complete.png)
+	![](https://dl.dropboxusercontent.com/u/9449406/logistics_assembly_complete.png)
+
+	> ![][info]
+	> 
+	> The `exclamation mark` badge in `invoke_xyz` can be ignored.
 
 1. Save your changes.
 
