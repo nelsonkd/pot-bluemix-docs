@@ -317,8 +317,6 @@ Rather than require you to build the entire API from scratch again, you will see
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab5/logistics_api_import_from_url.png)
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab5/logistics_api_import.png)
-	
-	![](https://dl.dropboxusercontent.com/u/9449406/logistics_api_import.png)
 
 1. Click the `refresh` button on your browser then you will see `logistics 1.0.0` API showing in API Designer's API list.
 
@@ -348,11 +346,11 @@ Rather than require you to build the entire API from scratch again, you will see
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab5/logistics-twopipelines.png)
 
-#### 5.2.2.1 - Configure the `get /shipping` Case:
+#### 5.2.2.1 - Configure the `shipping.calc` Case:
 
 This operation will end up invoking two separate back-end services to acquire shipping rates for the respective companies, then utilize a map action to combine the two separate responses back into a single, consolidated message for our consumers.
 
-1. Add an invoke policy to the `get /shipping` case with the following properties:
+1. Add an invoke policy to the `shipping.calc` case with the following properties:
 
 	> Title: `invoke_xyz`
 	  
@@ -405,10 +403,8 @@ This operation will end up invoking two separate back-end services to acquire sh
 	> Definition: `Inline schema`
 
 1. After you select `Inline schema`, you will be prompted to "Provide a schema".
-
-	Use the `Atom` editor to open the `/home/student/lab-files/lab5/schema_shippingSvc.yaml` file.
 	
-	Copy the following predefined schema into the schema editor window.
+	Copy the following predefined schema from `https://github.com/ibm-apiconnect/pot-bluemix-core/raw/5030/lab-files/lab5/schema_shippingSvc.yaml` into the schema editor window.
 	
 	`$schema: 'http://json-schema.org/draft-04/schema#'`  
 	`id: 'http://jsonschema.net'`  
@@ -487,7 +483,7 @@ This operation will end up invoking two separate back-end services to acquire sh
 
 	> ![][troubleshooting]
 	> 
-	> The `exclamation mark` badge in `invoke_xyz`.  You may ignore this message.
+	> There is an `exclamation mark` badge in `invoke_xyz`.  You may ignore this message.
 	
 1. Save your changes.
 
@@ -513,7 +509,7 @@ This operation will call out to the Google Geocode API to obtain location inform
   
 	> Title: `gws-format-maps-link`
 	  
-	> Paste the following predefined script into the code section of the policy.
+	> Paste the following predefined script from `https://github.com/ibm-apiconnect/pot-bluemix-core/raw/5030/lab-files/lab5/gws_formatMapsLink.js` into the code section of the policy.  
 	
 	`// Require API Connect Functions`  
 	`var apic = require('local:///isp/policy/apim.custom.js');`
@@ -546,25 +542,31 @@ This operation will call out to the Google Geocode API to obtain location inform
 
 	> ![][troubleshooting]
 	> 
-	> The `exclamation mark` badge in `invoke_xyz`.  You may ignore this message.
+	> There is an `exclamation mark` badge in `invoke_xyz`.  You may ignore this message.
 
 1. Save your changes.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab5/save-icon.png)
 
-1. Close the Firefox browser by clicking the `x` on the tab or browser window.
+# Lab 5 - Validation
 
-1. Return to your `Terminal Emulator` session.
+We will validate the financing and logistics APIs created above against with our lab 5 finished goods by instructor.  As each created API is saved as an Open API definition (a.k.a Swagger document), we can use Diffchecker online tool `https://www.diffchecker.com/` to compare any mistake or missing piece in APIs.
 
-1. Even though we closed the browser, the API Designer application itself is still running.
+1. Select the `financing 1.0.0` API, and then click `Source` button to view API source file.  Mouse right-click `Select All` and `Copy`.
 
-	Hold the `control` key and press the `c` key to end the API Designer session:
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab5/api_validate_view_source.png)
+
+1. Open Diffchecker online tool `https://www.diffchecker.com/`, and then `Paste` the API source into left panel.
+
+1. `Copy` the API source from `https://github.com/ibm-apiconnect/pot-bluemix-core/raw/5030/lab-files/lab5/financing_1.0.0_after_finish_lab5.yaml`, and then `Paste`  into right panel.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab5/api_validate_diffchecker.png)
+
+1. Click `Find Difference` button to see any mistake or missing piece in financing API.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab5/api_validate_dffchecker_result.png)
 	
-	```bash
-	control+c
-	```
-	
-	This will return you to the command line prompt.
+1. Repeat above step for logistics API comparing with the finished goods from `https://github.com/ibm-apiconnect/pot-bluemix-core/raw/5030/lab-files/lab5/logistics_1.0.0_after_finish_lab5.yaml`	
 
 # Lab 5 - Conclusion
 
