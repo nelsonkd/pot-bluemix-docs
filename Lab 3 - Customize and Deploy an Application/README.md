@@ -161,7 +161,7 @@ In this section, you will publish the `inventory` application to Bluemix
 
 1. Click the `Publish` icon.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab3/publishButton.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/lab-guide/img/lab3/publishButton.png)
 
 1. Select `Add and Manage Targets` from the menu.
 
