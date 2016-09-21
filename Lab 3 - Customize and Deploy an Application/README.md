@@ -27,9 +27,9 @@ Then, you will publish your LoopBack Inventory application to Bluemix where it w
 
 Before publishing the API for our application, the configuration file that was generated for you needs to be edited. By default, the generated application uses a base path of `/api`. In the next few steps, you will modify the base path to listen on `/inventory`.
 
-1. Using the text editor of choice, then navigate to the `ThinkIBM / inventory` folder and click the `OK` button.
+1. Using the text editor of choice, then navigate to the `ThinkIBM / inventory` folder. 
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab3/atom-open-folder-inventory.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab3/list-folder.png)
 
 	> ![][info]
 	> 
@@ -37,7 +37,7 @@ Before publishing the API for our application, the configuration file that was g
 
 1. From the folder tree menu, expand the `server` folder and click on the `config.json` file to view the source.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab3/atom-open-config.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab3/open-folder.png)
 
 1. Edit line 2 of the `config.json` file. Change `/api` to `/inventory`.
 
@@ -229,7 +229,7 @@ In this lab you learned:
 
 + How to create a remote hook
 + How to test the remote hook
-+ Publish App to Liberty Collective
++ Publish App to Bluemix
 
 Proceed to [Lab 4 - Configure and Secure an API](../Lab%204%20-%20Configure%20and%20Secure%20an%20API)
 
