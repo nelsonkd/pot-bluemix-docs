@@ -1,6 +1,6 @@
-# Lab 3 - Customize and Deploy the Inventory Application
+f# Lab 3 - Customize and Deploy the Inventory Application
 
-In this lab, you will add capabilities into the LoopBack application which was created in Lab 2. You will add custom javascript code which will alter the default behavior of the application. Once your edits are complete, you will package the application and publish it to a WebSphere Liberty runtime collective where it will be managed and enforced by the API Connect solution.
+In this lab, you will add capabilities into the LoopBack application which was created in Lab 2. You will add custom javascript code which will alter the default behavior of the application. Once your edits are complete, you will package the application and publish it to Bluemix as a Cloud Foundry Application where it will be managed and enforced by the API Connect solution.
 
 ---
 # Lab 3 - Objective
@@ -27,9 +27,9 @@ Then, you will publish your LoopBack Inventory application to Bluemix where it w
 
 Before publishing the API for our application, the configuration file that was generated for you needs to be edited. By default, the generated application uses a base path of `/api`. In the next few steps, you will modify the base path to listen on `/inventory`.
 
-1. Using the text editor of choice, then navigate to the `ThinkIBM / inventory` folder and click the `OK` button.
+1. Using the text editor of choice, then navigate to the `ThinkIBM / inventory` folder. 
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab3/atom-open-folder-inventory.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab3/list-folder.png)
 
 	> ![][info]
 	> 
@@ -37,7 +37,7 @@ Before publishing the API for our application, the configuration file that was g
 
 1. From the folder tree menu, expand the `server` folder and click on the `config.json` file to view the source.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab3/atom-open-config.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab3/open-folder.png)
 
 1. Edit line 2 of the `config.json` file. Change `/api` to `/inventory`.
 
@@ -45,7 +45,7 @@ Before publishing the API for our application, the configuration file that was g
 
 1. Save the changes.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab3/atom-save-changes.png)
+
 
 ## Lab 3.2 - Create a Remote Hook
 
@@ -65,48 +65,77 @@ For more information on Remote Hooks please see:
 
 `https://github.com/ibm-apiconnect/pot-onprem-core/blob/master/lab-files/lab3/item.js`
 
-![](http://github.com/ibm-apiconnect/pot-bluemix-docs/raw/master/img/lab3/1.png)
+![](
+https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab3/1a.js)
 	
 1. You have two choices in how to implement this change.  You can either copy and paste in the code from github by simply copying the contents from the github to the clipboard and pasting it to your local `item.js` file.
 
 1. Alternatively, you can copy and paste the contents of the text box below.  Be sure to **Remove** everything in the `item.js` file. Then paste the contents of your clipboard to update the file.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab3/atom-item-file2.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab3/2a.png)
 
-	```javascript
+```javascript
 	module.exports = function (Item) {
-	  Item.afterRemote('prototype.__create__reviews', function (ctx, remoteMethodOutput, next) {
-	    var itemId = remoteMethodOutput.itemId;
-	    
-	    console.log("calculating new rating for item: " + itemId);
-	
-	    var searchQuery = {include: {relation: 'reviews'}};
-	
-	    Item.findById(itemId, searchQuery, function findItemReviewRatings(err, findResult) {
-	      var reviewArray = findResult.reviews();
-	      var reviewCount = reviewArray.length;
-	      var ratingSum = 0;
-	
-	      for (var i = 0; i < reviewCount; i++) {
-	        ratingSum += reviewArray[i].rating;
-	      }
-	
-	      var updatedRating = Math.round((ratingSum / reviewCount) * 100) / 100;
-	
-	      console.log("new calculated rating: " + updatedRating);
-	
-	      findResult.updateAttribute("rating", updatedRating, function (err) {
-	        if (!err) {
-	          console.log("item rating successfully updated");
-	        } else {
-	          console.log("error updating rating for item: " + err);
-	        }
-	      });
-	      next();
-	    });
-	  });
-	};
-	```
+
+  /* Inject DATE into new REVIEW */
+
+  Item.beforeRemote('prototype.__updateById__review', function (ctx, review, next) {
+    var req = ctx.req;
+    req.body.date = Date.now();
+    ctx.args.data = req.body;
+    next();
+  });
+
+
+
+  /* Inject DATE into new REVIEW */
+
+  Item.beforeRemote('prototype.__create__reviews', function (ctx, review, next) {
+    var req = ctx.req;
+    req.body.date = Date.now();
+    ctx.args.data = req.body;
+    next();
+  });
+
+
+
+  /* Update ITEM rating after new REVIEW is submitted */
+
+  Item.afterRemote('prototype.__create__reviews', function (ctx, remoteMethodOutput, next) {                            // Set up a function to run after a review is created
+    var itemId = remoteMethodOutput.itemId;                                                                             // Get the id of the item that the review was just created for
+
+    console.log("calculating new rating for item: " + itemId);
+
+    var searchQuery = {include: {relation: 'reviews'}};                                                                 // Set up the search query to find all the existing reviews for the item
+
+    Item.findById(itemId, searchQuery, function findItemReviewRatings(err, findResult) {                                // Run the search and save the results to a variable called findResult
+      var reviewArray = findResult.reviews();                                                                           // Store each of the reviews in an array
+      var reviewCount = reviewArray.length;                                                                             // Count the number of reviews
+      var ratingSum = 0;                                                                                                // Set up the baseline review score
+
+      for (var i = 0; i < reviewCount; i++) {                                                                           // Add all the review scores
+        ratingSum += reviewArray[i].rating;
+      }
+
+      var updatedRating = Math.round((ratingSum / reviewCount) * 100) / 100;                                            // Take an average of all the review scores
+
+      console.log("new calculated rating: " + updatedRating);
+
+      findResult.updateAttribute("rating", updatedRating, function (err) {                                              // Update the rating attribute of the item with the newly calculated review score
+        if (!err) {
+          console.log("item rating successfully updated");
+        } else {
+          console.log("error updating rating for item: " + err);
+        }
+      });
+
+      next();
+    });
+
+  });
+
+};
+```
 
 1. Save the changes to the `item.js`.
 
@@ -132,7 +161,7 @@ In this section, you will publish the `inventory` application to Bluemix
 
 1. Click the `Publish` icon.
 
-	![](https://github.com/ibm-apiconnect/pot-onprem-docs/raw/5010/lab-guide/img/lab3/publishButton.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/lab-guide/img/lab3/publishButton.png)
 
 1. Select `Add and Manage Targets` from the menu.
 
@@ -200,7 +229,7 @@ In this lab you learned:
 
 + How to create a remote hook
 + How to test the remote hook
-+ Publish App to Liberty Collective
++ Publish App to Bluemix
 
 Proceed to [Lab 4 - Configure and Secure an API](../Lab%204%20-%20Configure%20and%20Secure%20an%20API)
 
