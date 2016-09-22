@@ -66,7 +66,7 @@ For more information on Remote Hooks please see:
 `https://github.com/ibm-apiconnect/pot-onprem-core/blob/master/lab-files/lab3/item.js`
 
 ![](
-https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab3/1a.js)
+https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab3/1a.png)
 	
 1. You have two choices in how to implement this change.  You can either copy and paste in the code from github by simply copying the contents from the github to the clipboard and pasting it to your local `item.js` file.
 
@@ -161,7 +161,7 @@ In this section, you will publish the `inventory` application to Bluemix
 
 1. Click the `Publish` icon.
 
-	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/lab-guide/img/lab3/publishButton.png)
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5030/img/lab3/publishButton.png)
 
 1. Select `Add and Manage Targets` from the menu.
 
