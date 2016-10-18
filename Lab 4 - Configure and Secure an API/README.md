@@ -233,6 +233,24 @@ An API Assembly provides collection of policies which are enforced and executed 
 
 We will validate the inventory application by using an Oauth test app we have running in Bluemix.
 
+1. First, you need to attach the OAuth API to our `inventory` product.
+
+	Click on the `<- All APIs` link, then click on the `Products` link to view the product list.
+
+1. Click on the `inventory 1.0.0` product to open it for editing.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5040/img/lab4/open-inv-product.png)
+
+1. Scroll down to the **APIs** section and click the `+` button.
+
+1. Select the `oauth` API to add it to the product and click the `Apply` button.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5040/img/lab4/add-oauth-api-to-product.png)
+
+1. Save the Product.
+
+	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5040/img/lab4/save-product.png)
+
 1. Publish your API to Bluemix clicking on the `Publish` button.
 
 	![](https://github.com/ibm-apiconnect/pot-bluemix-docs/raw/5040/img/lab4/publish.png)
